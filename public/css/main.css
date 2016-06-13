@@ -1,0 +1,81 @@
+.all-border {
+  border: 1px solid #f6f6f6;
+}
+.all-border2 {
+  border: 1px solid #b7b7b7;
+  padding: 0.5em;
+}
+.mg-top {
+  margin-top: 3%;
+}
+.mg-top2 {
+  margin-top: 4em;
+}
+.mg-top3 {
+  margin-top: 0.5em;
+}
+.styless {
+  list-style: none;
+}
+.app-dropdown {
+  margin-top: 10px;
+  left: -24%;
+}
+.app-container {
+  padding-left: 0;
+  margin-left: 0;
+}
+.app-nav {
+  margin-bottom: 0;
+}
+.item-menu-left {
+  padding-top: 10px;
+}
+.bord-bot {
+  border-bottom: 1px solid #f6f6f6;
+}
+.borde-left {
+  border-left: 1px solid #efefef;
+}
+.a-menu-left {
+  color: #000;
+  border-radius: 0 !important;
+}
+.a-menu-left:hover {
+  color: #000;
+  background: #fff !important;
+}
+.letter-black {
+  font-size: 12px;
+  color: #000;
+}
+.letter-black:hover {
+  color: #000;
+}
+.all-height {
+  height: 100%;
+  background: #fff;
+}
+.txt-center {
+  text-align: center;
+}
+.info-ask,
+.info-answ {
+  padding-top: 35px;
+}
+.footer {
+  color: #fff;
+  background: #3a3a3a;
+}
+textarea {
+  resize: none;
+}
+.rules_add_article {
+  color: #b5b5b5;
+  font-size: 17px;
+}
+.sancion-info {
+  font-size: 12px;
+  color: #9e9e9e;
+  text-align: justify;
+}
