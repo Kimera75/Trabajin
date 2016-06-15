@@ -14,6 +14,6 @@ class Types_sanctionTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(App\myModel\Types_sanction::class,3)->create();
+        factory(App\myModel\Types_sanction::class,5)->create();
     }
 }

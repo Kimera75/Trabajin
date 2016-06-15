@@ -14,19 +14,31 @@ class User extends Model
 
 
 
-    protected $fillable = ['id','name','career_id','num_sanctions', 'blocked_loans','active','role','e-mail'];
+    protected $fillable = ['id','name','career_id','num_sanctions', 'locked_loans','active','role','e-mail'];
 
     public $incrementing=false;
-
-    public function sanctions(){
-        return $this->hasMany('Sanction');
-    }
-
-    public function career(){
+    
+    /*Agregar usuarios a una carrera*/
+     public function career(){
         return $this->belongsTo(Career::class);
     }
+    /*Agregar usuario al encabezado del prestamo*/
+    public function loans_head(){
+        return $this->hasMany('App\myModel\Loans_head');
 
-    public function loans_heads(){
-        return $this->hasMany(Loans_head::class);
+
     }
+
+    /*Agregar sancion a usuario*/
+    public function type_sanction(){
+        return $this->belongsToMany('App\myModel\Types_sanction','users_loans_heads_types_sanctions')->withPivot('loans_head_id','release_day')->withTimestamps();
+    }
+
+   
+    /*Agregar encabezados de prestamos a usuario*/
+    public function loans_heads(){
+        return $this->belongsToMany('App\myModel\Loans_head','users_loans_heads_types_sanctions')->withPivot('types_sanction_id','release_day')->withTimestamps();
+    }
+
+
 }

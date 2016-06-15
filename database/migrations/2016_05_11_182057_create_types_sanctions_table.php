@@ -13,7 +13,7 @@ class CreateTypesSanctionsTable extends Migration
     public function up()
     {
         Schema::create('types_sanctions', function (Blueprint $table) {
-            $table->bigIncrements('id');;
+            $table->bigIncrements('id');
             $table->string('name',50)->required();
             $table->text('description')->nullable();
             $table->float('amount_payable')->required()->default(0.0);

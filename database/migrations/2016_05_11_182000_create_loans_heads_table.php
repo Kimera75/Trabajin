@@ -34,6 +34,6 @@ class CreateLoansHeadsTable extends Migration
     public function down()
     {
         Schema::drop('loans_heads');
-        Schema::drop('article_loans_heads');
+       
     }
 }

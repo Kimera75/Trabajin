@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
      	$this->call(UserTableSeeder::class);
      	$this->call(ArticleTableSeeder::class);
      	$this->call(Loan_headTableSeeder::class);
+        $this->call(UserLoansHeadSanctionsTableSeeder::class);
 
 
         

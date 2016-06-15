@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->enum('locked_loans',['Si','No'])->default('No');
             $table->enum('active',['Si','No'])->default('Si');
             $table->enum('role',['Estudiante','Docente'])->default('Estudiante');
-            $table->string('e_mail')->required();
+            $table->string('e_mail')->required()->unique();
            // $table->rememberToken();
             $table->timestamps();
         });

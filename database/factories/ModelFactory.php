@@ -63,26 +63,6 @@ $factory->define(App\myModel\User::class, function (Faker\Generator $faker) {
 });
 
 
-
-
-/*
-
-  esta nooooooooooo
-  $factory->define(App\User::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
-
-    ];*/
-
-
-
-
-
-
-
 $factory->define(App\myModel\Loans_head::class, function (Faker\Generator $faker) {
     return [
         'start_date_loan' => $faker->dateTimeBetween('-3 days', '+4 days', date_default_timezone_get()),
@@ -94,16 +74,3 @@ $factory->define(App\myModel\Loans_head::class, function (Faker\Generator $faker
 });
 
 
-$factory->define(App\myModel\Loans_item::class, function (Faker\Generator $faker) {
-    return [
-        'quantity' => $faker->numberBetween(1,15),
-        'state'=>$faker->randomElement(['Entregado','Faltante']),
-        
-    ];
-});
-/*
-$factory->define(App\myModel\Sanction::class, function (Faker\Generator $faker) {
-    return [
-        'actual_delivery_date'=> $faker->dateTimeInInterval('+8 days', '+10 days', date_default_timezone_get()),
-    ];
-});*/
