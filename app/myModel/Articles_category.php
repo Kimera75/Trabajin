@@ -1,6 +1,6 @@
 <?php
 
-namespace App\myModel;
+namespace SS\myModel;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +12,7 @@ class Articles_category extends Model
     public $incrementing=false;
 
     public function articles(){
-    	return $this->hasMany('App\myModel\Article');
+    	return $this->hasMany('SS\myModel\Article');
     }
 
     

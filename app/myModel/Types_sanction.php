@@ -1,6 +1,6 @@
 <?php
 
-namespace App\myModel;
+namespace SS\myModel;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,12 +14,12 @@ class Types_sanction extends Model
 
     /*Agregar sancion a un usuario*/
     public function users(){
-    	return $this->belongsToMany('App\myModel\User','users_loans_heads_types_sanctions')->withPivot('loans_head_id','release_date')->withTimestamps();
+    	return $this->belongsToMany('SS\myModel\User','users_loans_heads_types_sanctions')->withPivot('loans_head_id','release_date')->withTimestamps();
     }
 
 
     /*Agregar sancion al encabezado correspondiente*/
     public function loans_head(){
-    	return $this->belongsToMany('App\myModel\Loans_head','users_loans_heads_types_sanctions')->withPivot('user_id','release_date')->withTimestamps();
+    	return $this->belongsToMany('SS\myModel\Loans_head','users_loans_heads_types_sanctions')->withPivot('user_id','release_date')->withTimestamps();
     }
 }

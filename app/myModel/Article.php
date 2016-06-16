@@ -1,6 +1,6 @@
 <?php
 
-namespace App\myModel;
+namespace SS\myModel;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,12 +13,12 @@ class Article extends Model
  	public $incrementing=false;
 
     public function category(){
-    	return $this->belongsTo('App\myModel\Articles_category');
+    	return $this->belongsTo('SS\myModel\Articles_category');
     }
 
    
    public function loans_heads(){
-   		return $this->belongsToMany('App\myModel\Loans_head','article_loans_heads')->withPivot('state','quantity')->withTimestamps();
+   		return $this->belongsToMany('SS\myModel\Loans_head','article_loans_heads')->withPivot('state','quantity')->withTimestamps();
 
 
 
