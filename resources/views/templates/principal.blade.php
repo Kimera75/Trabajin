@@ -157,7 +157,7 @@
                             <a href="#"><i class="fa fa-cogs fa-fw fa-2x"></i> Configuraciones<span class="fa arrow app-icon"></span></a>
                             <ul class="sub-nav nav nav-second-level">
                                 <li>
-                                    <a href="#">
+                                    <a href="{!!URL::to('/config/sanciones')!!}">
                                         <i class="fa fa-exclamation-triangle fa-fw"></i>     
                                         Sanciones</a>
                                 </li>

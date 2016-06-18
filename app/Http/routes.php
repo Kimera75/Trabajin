@@ -13,6 +13,7 @@
 Route::get('/',function(){
 	return view('index');
 });
+Route::get('/config/sanciones', 'SanctionsController@index');
 
 Route::resource('user','UserController');
 Route::resource('article','ArticlesController');

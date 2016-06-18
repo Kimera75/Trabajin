@@ -411,3 +411,15 @@ table.dataTable thead .sorting:after {
     margin-left: 40%;
     padding: 7px;
 }
+.bordeado_2{
+    border-bottom: 2px solid #DBD9D9;
+}
+.text-justify{
+    font-size: 16px;
+    text-align: justify;
+}
+@media(max-width: 768px){
+    .center-only-sm{
+        text-align: center;
+    }
+}
