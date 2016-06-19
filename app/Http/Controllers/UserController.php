@@ -83,7 +83,9 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = \SS\myModel\User::find($id);
-        $user->fill($request->all());
+        $user->id       = $request->id;
+        $user->name     = $request->name;
+        $user->e_mail   = $request->e_mail;
         $user->save();
         Session::flash('message','¡Usuario actualizado correctamente!');
         return Redirect::to('\user');
