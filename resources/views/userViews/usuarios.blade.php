@@ -1,6 +1,12 @@
 @extends('templates.principal')
 
 @section('content')
+@if(Session::has('message'))
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  {{Session::get('message')}}
+</div>
+@endif
     <div class="row title-seccion"><h2>Usuarios</h2></div>
     <div class="row">
         <div class="table-responsive">
@@ -15,34 +21,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($users as $user)
                     <tr>
-                        <td>1</td>
-                        <td>Cristofer Flores</td>
-                        <td>Ing. en Telématica</td>
-                        <td>Alumno</td>
-                        <td class="text-center"><button class="btn btn-warning">Editar</button></td>
+                        <td class="text-center">{{$user->id}}</td>
+                        <td class="text-center">{{$user->name}}</td>
+                        <td class="text-center">{{$user->e_mail}}</td>
+                        <td class="text-center">{{$user->role}}</td>
+                        <td class="text-center">
+                            {!!link_to_route('user.edit', $title = 'Editar', $parameters = $user->id, $attributes = array('class' => 'btn btn-warning'))!!}
+                        </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>John Antony</td>
-                        <td>Ing. en Telématica</td>
-                        <td>Alumno</td>
-                        <td class="text-center"><button class="btn btn-warning">Editar</button></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Eduviges</td>
-                        <td>Ing. en Telématica</td>
-                        <td>Maestro(a)</td>
-                        <td class="text-center"><button class="btn btn-warning">Editar</button></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Ponce Jesus</td>
-                        <td>Ing. en Telématica</td>
-                        <td>Maestro(a)</td>
-                        <td class="text-center"><button class="btn btn-warning">Editar</button></td>
-                    </tr>
+                    @endforeach                   
                 </tbody>
             </table>
         </div>

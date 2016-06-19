@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6">
-        {!! Form::open(array())!!}
+        {!! Form::open(array('route'=>'user.store', 'method'=>'POST'))!!}
             @include('templates.forms')
             <div class="form-group pull-right mg-top">                
                 {!!Form::submit('Registrar Usuario',array('class'=>'btn btn-primary'))!!}   

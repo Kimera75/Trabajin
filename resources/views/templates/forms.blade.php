@@ -16,7 +16,7 @@
     {!!Form::label('email', 'Correo Electronico:')!!}
     <div class="input-group">
         <div class="input-group-addon"><span class=" glyphicon glyphicon-envelope"></span></div>
-        {!!Form::text('email',null,array('class'=>'form-control','placeholder'=>'Ingresa el correo electronico'))!!}  
+        {!!Form::text('e_mail',null,array('class'=>'form-control','placeholder'=>'Ingresa el correo electronico'))!!}  
     </div>
 </div>
 <div class="form-group">

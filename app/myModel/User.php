@@ -19,7 +19,7 @@ class User extends Model
     public $incrementing=false;
     
     /*Agregar usuarios a una carrera*/
-     public function career(){
+    public function career(){
         return $this->belongsTo(Career::class);
     }
     /*Agregar usuario al encabezado del prestamo*/

@@ -5,6 +5,9 @@ namespace SS\Http\Controllers;
 use Illuminate\Http\Request;
 
 use SS\Http\Requests;
+use Session;
+use Redirect;
+use \SS\myModel\User as User;
 
 class UserController extends Controller
 {
@@ -15,7 +18,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return View('UserViews.usuarios');
+        $users = \SS\myModel\User::All();
+        return View('UserViews.usuarios', compact('users'));
     }
 
     /**
@@ -36,7 +40,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $user->id       = $request->id;
+        $user->name     = $request->name;
+        $user->e_mail   = $request->e_mail;        
+        $user->save();
+        Session::flash('message','¡Usuario agregado correctamente!');
+        return Redirect::to('\user');
+
     }
 
     /**
@@ -47,7 +58,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -58,7 +69,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = \SS\myModel\User::find($id);
+        return View('userViews.userEdit',['user'=>$user]);
     }
 
     /**
@@ -70,7 +82,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = \SS\myModel\User::find($id);
+        $user->fill($request->all());
+        $user->save();
+        Session::flash('message','¡Usuario actualizado correctamente!');
+        return Redirect::to('\user');
     }
 
     /**
