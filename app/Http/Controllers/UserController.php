@@ -18,8 +18,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = \SS\myModel\User::All();
+        $users = \SS\myModel\User::paginate(15);
         return View('UserViews.usuarios', compact('users'));
+
     }
 
     /**
