@@ -1,6 +1,6 @@
 <?php
 
-namespace App\myModel;
+namespace SS\myModel;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,12 +14,12 @@ class Loans_item extends Model
     public $incrementing=false;
 
     public function loan_head(){
-    	return $this->belongsTo('App\myModel\Loans_head');
+    	return $this->belongsTo('SS\myModel\Loans_head');
     }
 
   
 
     public function articles(){
-    	return $this->belongsToMany('App\myModel\Article');
+    	return $this->belongsToMany('SS\myModel\Article');
     }
 }

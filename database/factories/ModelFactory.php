@@ -12,7 +12,7 @@
 */
 
 
-$factory->define(App\myModel\Article::class, function (Faker\Generator $faker) {
+$factory->define(SS\myModel\Article::class, function (Faker\Generator $faker) {
     return [
         'id'=>$faker->numerify('Art####'),
         'name' => $faker->sentence(3,true),
@@ -23,7 +23,7 @@ $factory->define(App\myModel\Article::class, function (Faker\Generator $faker) {
 });
 
 
-$factory->define(App\myModel\Articles_category::class, function (Faker\Generator $faker) {
+$factory->define(SS\myModel\Articles_category::class, function (Faker\Generator $faker) {
     return [
         'id' => $faker->numerify('ArCa###'),
         'name' => $faker->sentence(5,true),
@@ -32,7 +32,7 @@ $factory->define(App\myModel\Articles_category::class, function (Faker\Generator
 });
 
 
-$factory->define(App\myModel\Career::class, function (Faker\Generator $faker) {
+$factory->define(SS\myModel\Career::class, function (Faker\Generator $faker) {
     return [
         'id' => $faker->numerify('Ca###'),
         'name' => $faker->sentence(3,true),
@@ -40,7 +40,7 @@ $factory->define(App\myModel\Career::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\myModel\Types_sanction::class, function (Faker\Generator $faker) {
+$factory->define(SS\myModel\Types_sanction::class, function (Faker\Generator $faker) {
     return [
         'id' => $faker->unique()->randomDigitNotNull,   
         'name' => $faker->sentence(3,true),
@@ -50,7 +50,7 @@ $factory->define(App\myModel\Types_sanction::class, function (Faker\Generator $f
     ];
 });
 
-$factory->define(App\myModel\User::class, function (Faker\Generator $faker) {
+$factory->define(SS\myModel\User::class, function (Faker\Generator $faker) {
     return [
        'id'=>$faker->numerify('User#####'),
         'name' => $faker->name,        
@@ -63,7 +63,7 @@ $factory->define(App\myModel\User::class, function (Faker\Generator $faker) {
 });
 
 
-$factory->define(App\myModel\Loans_head::class, function (Faker\Generator $faker) {
+$factory->define(SS\myModel\Loans_head::class, function (Faker\Generator $faker) {
     return [
         'start_date_loan' => $faker->dateTimeBetween('-3 days', '+4 days', date_default_timezone_get()),
         'end_date_loan' => $faker->dateTimeBetween('-5 days', '+7 days', date_default_timezone_get()),
