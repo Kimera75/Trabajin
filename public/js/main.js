@@ -1,5 +1,4 @@
 $(function() {
-
     $('#side-menu').metisMenu();
     $('.datepick').datepicker({
         autoclose:true,
@@ -7,6 +6,7 @@ $(function() {
         todayHighlight: true,
         todayBtn: "linked"
     });
+
     $('.makeLoan').on('click',function(){
          $('#prestados-inte').val('');
          $('#cati-select').val('0');
@@ -29,6 +29,37 @@ $(function() {
         }else{
               $('#prestados-exte').val($('#prestados-exte').val()+' , '+$('#arti-select-exte option:selected').text());
         }      
+    });
+
+    $('#dt-tableUsers').bootstrapTable({       
+        pagination: true,
+        pageSize: 5,
+        search: true,
+        showRefresh: true,
+        showToggle: true,
+        showColumns: true,
+        searchOnKeyEnter: true,
+        columns: [{
+            field: 'id',
+            title: '#',
+            class: 'title-table'
+        },{
+            field: 'Nombre',
+            title: 'Nombre',
+            class: 'title-table'
+        },{
+            field: 'Carrer',
+            title: 'Carrera',
+            class: 'title-table'
+        },{
+            field: 'Role',
+            title: 'Rol',
+            class: 'title-table'
+        },{
+            field: 'Actions',
+            title: 'Acciones',
+            class: 'title-table'
+        }]        
     });
 });
 

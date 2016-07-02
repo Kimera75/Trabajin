@@ -15,18 +15,21 @@
     {!!Html::style('css/vendor/metisMenu.min.css')!!}
     {{-- <link href="css/vendor/metisMenu.min.css" rel="stylesheet"> --}}
 
+    <!-- Custom Fonts -->
+    {!!Html::style('css/vendor/font-awesome/css/font-awesome.min.css')!!}
+    {{-- <link href="css/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> --}}
+
+    <!-- bootstrap datepicker -->
+    {!!Html::style('css/vendor/bootstrap-datepicker.css')!!}
+    {{-- <link rel="stylesheet" href="css/vendor/bootstrap-datepicker.css"> --}}
+
+    {{-- Boostrap DataTable --}}
+    {!!Html::style('css/vendor/bootstrap-table.css')!!}
+
     <!-- Custom CSS -->
     {!!Html::style('css/main.css')!!}    
     {{--  <link href="css/main.css" rel="stylesheet"> --}}
 
-    <!-- Custom Fonts -->
-    {!!Html::style('css/vendor/font-awesome/css/font-awesome.min.css')!!}
-    {{-- <link href="css/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> --}}
-    <!-- Jquery DataTables css -->
-    <!-- <link rel="stylesheet" href="css/vendor/jquery-dtb.css"> -->
-    <!-- bootstrap datepicker -->
-    {!!Html::style('css/vendor/bootstrap-datepicker.css')!!}
-    {{-- <link rel="stylesheet" href="css/vendor/bootstrap-datepicker.css"> --}}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -197,12 +200,13 @@
     <!-- Metis Menu Plugin JavaScript -->
     {!!Html::script('js/vendor/metisMenu.min.js')!!}
     {{-- <script src="js/vendor/metisMenu.min.js"></script> --}}
-    <!-- Jquery DataTables -->
-    <!-- <script src="js/vendor/jquery-dtb.min.js"></script>
-    // <script src="js/vendor/jquery-dtb-bootstrap.js"></script> -->
+
     <!-- bootstrap datePicker -->
     {!!Html::script('js/vendor/bootstrap-datepicker.js')!!}
     {{-- <script src="js/vendor/bootstrap-datepicker.js"></script> --}}
+
+    {{-- Bootstrap DataTable --}}
+    {!!Html::script('js/vendor/bootstrap-table.js')!!}
 
     <!-- Custom Theme JavaScript -->
     {!!Html::script('js/main.js')!!}
