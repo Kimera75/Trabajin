@@ -30,11 +30,13 @@
                         <td class="text-center">
                             {!!link_to_route('user.edit', $title = 'Editar', $parameters = $user->id, $attributes = array('class' => 'btn btn-warning'))!!}
                         </td>
-                    </tr>
+                    </tr>                
                     @endforeach                   
                 </tbody>
             </table>
         </div>
     </div>
     </div>
+    {!! $users->render() !!}
+
 @endsection
