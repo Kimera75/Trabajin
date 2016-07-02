@@ -1,12 +1,6 @@
 @extends('templates.principal')
 
 @section('content')
-@if(Session::has('message'))
-<div class="alert alert-success alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  {{Session::get('message')}}
-</div>
-@endif
     <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6">
         {!! Form::model($user,array('route'=>['user.update',$user->id],'method'=>'PUT')) !!}

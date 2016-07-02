@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="row">
-    <h2>Categorias</h2>
     <div class="col-xs-12 col-sm-12 col-md-6">
-        {!!Form::open(array('route'=>'category.store', 'method'=>'POST'))!!}
+        {!! Form::model($cat,array('route'=>['category.update',$cat->id],'method'=>'PUT')) !!}
             @include('templates.form-category')                     
             <div class="form-group pull-right mg-top">
-                {!!Form::submit('Registrar Categoria', array('class' => 'btn btn-primary'))!!}      
+                {!!Form::submit('Guardar Cambios', array('class' => 'btn btn-success'))!!}      
+                {!!Form::submit('Eliminar Categoria', array('class' => 'btn btn-danger'))!!}      
             </div>
         {!!Form::close()!!}
     </div>

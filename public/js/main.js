@@ -31,14 +31,35 @@ $(function() {
         }      
     });
 
-    $('#dt-tableUsers').bootstrapTable({       
+    $('#dt_cat').bootstrapTable({
         pagination: true,
         pageSize: 5,
         search: true,
         showRefresh: true,
         showToggle: true,
         showColumns: true,
-        searchOnKeyEnter: true,
+        columns: [{
+            field: 'id',
+            title: '#',
+            class: 'title-table'
+        },{
+            field: 'Nombre',
+            title: 'Nombre de la categoria',
+            class: 'title-table'
+        },{
+            field: 'Actions',
+            title: 'Acciones',
+            class: 'title-table'
+        }] 
+    });
+    
+    $('#dt-tableUsers').bootstrapTable({
+        pagination: true,
+        pageSize: 5,
+        search: true,
+        showRefresh: true,
+        showToggle: true,
+        showColumns: true,
         columns: [{
             field: 'id',
             title: '#',

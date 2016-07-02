@@ -11,15 +11,6 @@
     <div class="row">
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover" id="dt-tableUsers">
-             {{--    <thead class="thead-inverse">
-                    <tr class="table-info">
-                        <td class="title-table">#</td>
-                        <td class="title-table">Nombre</td>
-                        <td class="title-table">Carrera</td>
-                        <td class="title-table">Rol</td>
-                        <td class="title-table">Operaciones</td>
-                    </tr>
-                </thead> --}}
                 <tbody>
                     @foreach($users as $user)
                     <tr>
