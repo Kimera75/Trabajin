@@ -10,8 +10,8 @@
     <div class="row title-seccion"><h2>Usuarios</h2></div>
     <div class="row">
         <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover">
-                <thead class="thead-inverse">
+            <table class="table table-striped table-bordered table-hover" id="dt-tableUsers">
+             {{--    <thead class="thead-inverse">
                     <tr class="table-info">
                         <td class="title-table">#</td>
                         <td class="title-table">Nombre</td>
@@ -19,7 +19,7 @@
                         <td class="title-table">Rol</td>
                         <td class="title-table">Operaciones</td>
                     </tr>
-                </thead>
+                </thead> --}}
                 <tbody>
                     @foreach($users as $user)
                     <tr>
@@ -30,11 +30,13 @@
                         <td class="text-center">
                             {!!link_to_route('user.edit', $title = 'Editar', $parameters = $user->id, $attributes = array('class' => 'btn btn-warning'))!!}
                         </td>
-                    </tr>
+                    </tr>                
                     @endforeach                   
                 </tbody>
             </table>
         </div>
     </div>
     </div>
+  {{--   {!! $users->render() !!} --}}
+
 @endsection

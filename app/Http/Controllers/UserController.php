@@ -20,6 +20,7 @@ class UserController extends Controller
     {
         $users = \SS\myModel\User::All();
         return View('UserViews.usuarios', compact('users'));
+
     }
 
     /**
