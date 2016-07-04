@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $cats = \SS\myModel\Articles_category::All();
+        $cats = Category::All();
         return View('layouts.categorias', compact('cats'));
     }
 
@@ -43,8 +43,8 @@ class CategoryController extends Controller
         $cat->id    = $request->id;
         $cat->name  = $request->name;
         $cat->save();
-        Session::flash('message','Categoria agregada correctamente!');
-        return Redirect::to('\category');
+        Session::flash('message','¡Categoria agregada correctamente!');
+        return Redirect::to('category');
     }
 
     /**
@@ -66,7 +66,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $cat = \SS\myModel\Articles_category::find($id);
+        $cat = Category::find($id);
         return View('layouts.categoriasEdit', ['cat'=>$cat]);
     }
 
@@ -79,12 +79,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cat = \SS\myModel\Articles_category::find($id);
+        $cat = Category::find($id);
         $cat->id    = $request->id;
         $cat->name  = $request->name;
         $cat->save();
-        Session::flash('message','Categoria actualizada correctamente!');
-        return Redirect::to('\category');
+        Session::flash('message','¡Categoria actualizada correctamente!');
+        return Redirect::to('category');
     }
 
     /**
@@ -95,6 +95,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::destroy($id);
+        Session::flash('message','¡Categoria eliminada correctamente!');
+        return Redirect::to('category');
     }
 }

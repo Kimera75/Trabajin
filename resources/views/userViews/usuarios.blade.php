@@ -18,6 +18,7 @@
                         <td class="text-center">{{$user->name}}</td>
                         <td class="text-center">{{$user->e_mail}}</td>
                         <td class="text-center">{{$user->role}}</td>
+                        <td class="text-center">{{$user->career->name}}</td>
                         <td class="text-center">
                             {!!link_to_route('user.edit', $title = 'Editar', $parameters = $user->id, $attributes = array('class' => 'btn btn-warning'))!!}
                         </td>

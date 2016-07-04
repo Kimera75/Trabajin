@@ -14,7 +14,7 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->string('id',7)->primary()->required();
-            $table->string('articles_category_id',7)->foreign()->references('id')->on('articles_categories');            
+            $table->string('articles_category_id',7)->foreign()->references('id')->on('articles_categories');
             $table->string('name',50)->required();
             $table->text('description')->nullable();
             $table->integer('quantity')->unsigned()->default(1);

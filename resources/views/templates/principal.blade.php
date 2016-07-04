@@ -90,11 +90,11 @@
                             <ul class="sub-nav nav nav-second-level">
                                 <li>
                                     <a href="{!!URL::to('/user/create')!!}" >
-                                        <i class="fa fa-plus-circle fa-fw"></i> Agregar/Eliminar Usuarios
+                                        <i class="fa fa-plus-circle fa-fw"></i> Agregar Usuarios
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{!!URL::to('/user')!!}">
+                                    <a href="{!!URL::to('user')!!}">
                                         <i class="fa fa-users fa-fw"></i>
                                         Ver Usuarios
                                     </a>
@@ -108,7 +108,7 @@
                                 <li>
                                     <a href="{!!URL::to('/article/create')!!}">
                                         <i class="fa fa-plus-circle fa-fw"></i> 
-                                        Agregar/Eliminar Articulos
+                                        Agregar Articulos
                                     </a>
                                 </li>
                                 <li>                                    
@@ -126,7 +126,7 @@
                                 <li>
                                     <a href="{!!URL::to('/category/create')!!}">
                                         <i class="fa fa-plus-circle fa-fw"></i> 
-                                        Agregar/Eliminar Categorias
+                                        Agregar Categorias
                                     </a>
                                 </li>
                                 <li>

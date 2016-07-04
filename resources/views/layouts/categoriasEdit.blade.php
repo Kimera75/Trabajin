@@ -6,10 +6,15 @@
         {!! Form::model($cat,array('route'=>['category.update',$cat->id],'method'=>'PUT')) !!}
             @include('templates.form-category')                     
             <div class="form-group pull-right mg-top">
-                {!!Form::submit('Guardar Cambios', array('class' => 'btn btn-success'))!!}      
-                {!!Form::submit('Eliminar Categoria', array('class' => 'btn btn-danger'))!!}      
+                {!!Form::submit('Guardar Cambios', array('class' => 'btn btn-success'))!!}               
             </div>
         {!!Form::close()!!}
+
+        {!!Form::open(array('route' => ['category.destroy', $cat->id], 'method' => 'DELETE'))!!}
+            <div class="form-group pull-right mg-top" style="margin-right:15px;">
+                {!!Form::submit('Eliminar Categoria', array('class' => 'btn btn-danger'))!!}
+            </div>
+        {!!Form::close()!!} 
     </div>
     <div class="hidden-xs hidden-sm col-sm-4 col-md-offset-2">
         <p class="info-parrafo">

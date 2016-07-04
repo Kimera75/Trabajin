@@ -31,11 +31,43 @@ $(function() {
         }      
     });
 
+    $('#dt_article').bootstrapTable({
+        pagination: true,
+        pageSize: 5,
+        search: true,
+        showToggle: true,
+        showColumns: true,
+        columns: [{
+            field: 'id',
+            title: '#',
+            class: 'title-table'
+        },{
+            field: 'category',
+            title: 'Categoria',
+            class: 'title-table'
+        },{
+            field: 'name',
+            title: 'Nombre',
+            class: 'title-table'
+        },{
+            field: 'desc',
+            title: 'Descripcion',
+            class: 'title-table'
+        },{
+            field: 'cant',
+            title: 'Cantidad',
+            class: 'title-table'
+        },{
+            field: 'Actions',
+            title: 'Acciones',
+            class: 'title-table'
+        }] 
+    });
+
     $('#dt_cat').bootstrapTable({
         pagination: true,
         pageSize: 5,
         search: true,
-        showRefresh: true,
         showToggle: true,
         showColumns: true,
         columns: [{
@@ -51,13 +83,11 @@ $(function() {
             title: 'Acciones',
             class: 'title-table'
         }] 
-    });
-    
+    });        
     $('#dt-tableUsers').bootstrapTable({
         pagination: true,
         pageSize: 5,
         search: true,
-        showRefresh: true,
         showToggle: true,
         showColumns: true,
         columns: [{
@@ -69,18 +99,25 @@ $(function() {
             title: 'Nombre',
             class: 'title-table'
         },{
-            field: 'Carrer',
-            title: 'Carrera',
+            field: 'email',
+            title: 'Correo Electronico',
             class: 'title-table'
         },{
             field: 'Role',
             title: 'Rol',
             class: 'title-table'
         },{
+            field: 'Career',
+            title: 'Carrera',
+            class: 'title-table'
+        },{
             field: 'Actions',
             title: 'Acciones',
             class: 'title-table'
-        }]        
+        }],
+        onRefresh: function(){ 
+            $('#dt-tableUsers').bootstrapTable('refresh');  
+        }       
     });
 });
 
