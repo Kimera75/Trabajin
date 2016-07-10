@@ -1,3 +1,6 @@
+@extends('templates.principal')
+
+@section('content')
 <div class="row title-section"><h2>Préstamos</h2></div>
 <div class="row mg-top text-center">
     <div class="col xs 12 col-sm 6 col-md-6 mg-top">
@@ -22,27 +25,24 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <h4 class="modal-title"><i class="fa fa-home fa-fw"></i>Prestamo interno</h4>
-      </div>
+      </div>      
       <form action="" class="text-center">
           <div class="modal-body">                                                
-            <label for="">Codigo del Usuario:</label>
+           {!!Form::label('code','Codigo del usuario', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-lock"></span>
                 </div>
-                <input type="text" class="form-control" placeholder="Codigo">
+                {!!Form::text('id_user',null,array('class' => 'form-control', 'palceholder' => 'Codigo'))!!}
             </div>
-            <label for="" class="mg-top">Categorias:</label>
+            {!!Form::label('cat','Categorias:', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-indent-left"></span>
                 </div>
-                <select name="" id="cati-select" class="form-control">
-                    <option value="0">Categorias</option>
-                    <option value="1">Categoria 1</option>
-                </select>
+                {!!Form::select('category',$categorys,null,array('class' => 'form-control'))!!}
             </div>
-            <label for="" class="mg-top">Articulos:</label>
+            {!!Form::label('article','Articulos:', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-book"></span>
@@ -55,13 +55,12 @@
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3 mg-top">
                 <button type="button" class="btn btn-primary" id="btn-prestar">Agregar a lista</button>
             </div>
-            <label for="" class="mg-top">Nº de Articulos</label>
-            <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">                                    
-                <textarea class="form-control" name="" id="prestados-inte" cols="30" rows="5" style="resize:none" placeholder="articulos a prestar"></textarea>
+            {!!Form::label('Num-arti', 'Numero de articulos:', array('class' => 'mg-top'))!!}
+            <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3" id="loan-arti">                      
             </div>
-            <label for="" class="mg-top">Fecha:</label>
+            {!!Form::label('date','Fecha:',array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3 date">
-                <input type='text' class="form-control datepick">
+                {!!Form::text('date',null,array('class' => 'form-control datepick'))!!}               
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -84,7 +83,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title"><i class="fa fa-globe fa-fw"></i>Prestamo externo</h4>
+        <h4 class="modal-title"><i class="fa fa-globe fa-fw"></i>Préstamo externo</h4>
       </div>
       <form action="" class="text-center">
           <div class="modal-body">                                                
@@ -119,8 +118,8 @@
                 <button type="button" class="btn btn-primary" id="btn-prestar-exte">Agregar a lista</button>
             </div>
             <label for="" class="mg-top">Nº de Articulos</label>
-            <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">                                    
-                <textarea class="form-control" name="" id="prestados-exte" cols="30" rows="5" style="resize:none" placeholder="articulos a prestar"></textarea>
+            <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3" id="loan-arti-exte">    
+                
             </div>
             <label for="" class="mg-top">Fecha préstamo:</label>
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3 date">
@@ -145,3 +144,4 @@
     </div>
   </div>
 </div> <!-- /.modal-externo -->
+@endsection

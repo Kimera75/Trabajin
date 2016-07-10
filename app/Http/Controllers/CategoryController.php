@@ -3,8 +3,10 @@
 namespace SS\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Session;
+use Redirect;
 use SS\Http\Requests;
+use \SS\myModel\Articles_category as Category;
 
 class CategoryController extends Controller
 {
@@ -15,7 +17,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return View('layouts.categorias');
+        $cats = Category::All();
+        return View('layouts.categorias', compact('cats'));
     }
 
     /**
@@ -36,7 +39,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cat        = new Category;
+        $cat->id    = $request->id;
+        $cat->name  = $request->name;
+        $cat->save();
+        Session::flash('message','¡Categoria agregada correctamente!');
+        return Redirect::to('category');
     }
 
     /**
@@ -58,7 +66,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cat = Category::find($id);
+        return View('layouts.categoriasEdit', ['cat'=>$cat]);
     }
 
     /**
@@ -70,7 +79,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cat = Category::find($id);
+        $cat->id    = $request->id;
+        $cat->name  = $request->name;
+        $cat->save();
+        Session::flash('message','¡Categoria actualizada correctamente!');
+        return Redirect::to('category');
     }
 
     /**
@@ -80,7 +94,11 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {   
+        $cat = Category::find($id);
+        $cat->articles()->delete();
+        $cat->delete();
+        Session::flash('message','¡Categoria eliminada correctamente!');
+        return Redirect::to('category');
     }
 }

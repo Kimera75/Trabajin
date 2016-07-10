@@ -3,7 +3,10 @@
 namespace SS\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Session;
+use Redirect;
+use SS\myModel\Articles_Category as Categorys;
+use SS\myModel\Article as Articulo;
 use SS\Http\Requests;
 
 class ArticlesController extends Controller
@@ -15,7 +18,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        return View('layouts.articulos');
+        $articles = Articulo::All();
+        return View('layouts.articulos', compact('articles'));
     }
 
     /**
@@ -25,7 +29,8 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return View('layouts.articleRegister');
+        $categorias = Categorys::lists('name', 'id');
+        return View('layouts.articleRegister', compact('categorias'));
     }
 
     /**
@@ -36,7 +41,15 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $arti = new Articulo;
+        $arti->id                   = $request->id;
+        $arti->name                 = $request->name;
+        $arti->description          = $request->description;
+        $arti->articles_category_id = $request->articles_category_id;
+        $arti->quantity             = $request->quantity;
+        $arti->save();
+        Session::flash('message','¡Articulo agregado correctamente!');
+        return Redirect::to('article');
     }
 
     /**
@@ -58,7 +71,10 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $arti = Articulo::find($id);
+        $categorias = Categorys::lists('name', 'id');
+        return View('layouts.articlesEdit',['arti' => $arti], compact('categorias'));
+
     }
 
     /**
@@ -70,7 +86,15 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $arti = Articulo::find($id);
+        $arti->id                   = $request->id;
+        $arti->name                 = $request->name;
+        $arti->description          = $request->description;
+        $arti->articles_category_id = $request->articles_category_id;
+        $arti->quantity             = $request->quantity;
+        $arti->save();
+        Session::flash('message','¡Articulo actualizado correctamente!');
+        return Redirect::to('article');
     }
 
     /**
@@ -81,6 +105,9 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Articulo::destroy($id);
+        Session::flash('message','¡Articulo eliminado correctamente!');
+        return Redirect::to('article');
+
     }
 }

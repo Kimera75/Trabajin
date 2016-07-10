@@ -13,7 +13,7 @@ class Article extends Model
  	public $incrementing=false;
 
     public function category(){
-    	return $this->belongsTo('SS\myModel\Articles_category');
+    	return $this->belongsTo(Articles_category::class, 'articles_category_id', 'id');
     }
 
    

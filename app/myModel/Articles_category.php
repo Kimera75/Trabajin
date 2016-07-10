@@ -12,8 +12,6 @@ class Articles_category extends Model
     public $incrementing=false;
 
     public function articles(){
-    	return $this->hasMany('SS\myModel\Article');
-    }
-
-    
+    	return $this->hasMany(Article::class);
+    }       
 }
