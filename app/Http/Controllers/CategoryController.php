@@ -94,8 +94,10 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        Category::destroy($id);
+    {   
+        $cat = Category::find($id);
+        $cat->articles()->delete();
+        $cat->delete();
         Session::flash('message','¡Categoria eliminada correctamente!');
         return Redirect::to('category');
     }

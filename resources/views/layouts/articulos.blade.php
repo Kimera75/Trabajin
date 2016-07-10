@@ -15,7 +15,7 @@
                     @foreach($articles as $article)
                     <tr>
                         <td class="text-center">{{$article->id}}</td>
-                        <td class="text-center">{{$article->category}}</td>
+                        <td class="text-center">{{$article->category->name}}</td>
                         <td class="text-center">{{$article->name}}</td>
                         <td class="text-center">{{$article->description}}</td>
                         <td class="text-center">{{$article->quantity}}</td>

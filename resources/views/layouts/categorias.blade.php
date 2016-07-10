@@ -15,7 +15,7 @@
                     @foreach($cats as $cat)
                     <tr>
                         <td class="text-center">{{$cat->id}}</td>
-                        <td class="text-center">{{$cat->name}}</td>                                      
+                        <td class="text-center">{{$cat->name}}</td>                        
                         <td class="text-center">
                             {!!link_to_route('category.edit', $title = 'Editar', $parameters = $cat->id, $attributes = array('class' => 'btn btn-warning'))!!}
                         </td>
