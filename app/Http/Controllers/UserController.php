@@ -8,6 +8,7 @@ use SS\Http\Requests;
 use Session;
 use Redirect;
 use \SS\myModel\User as User;
+use \SS\myModel\Career;
 
 class UserController extends Controller
 {
@@ -18,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = \SS\myModel\User::paginate(10);
+        $users = User::All();
         return View('UserViews.usuarios', compact('users'));
 
     }
@@ -30,7 +31,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return View('UserViews.userAdd');
+        $carrer = Career::lists('name', 'id');
+        return View('UserViews.userAdd', compact('carrer'));
     }
 
     /**
@@ -42,12 +44,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = new User;
-        $user->id       = $request->id;
-        $user->name     = $request->name;
-        $user->e_mail   = $request->e_mail;        
+        $user->id           = $request->id;
+        $user->name         = $request->name;
+        $user->e_mail       = $request->e_mail;
+        $user->role         = $request->role;
+        $user->career_id    = $request->carrer;
         $user->save();
         Session::flash('message','¡Usuario agregado correctamente!');
-        return Redirect::to('\user');
+        return Redirect::to('user');
 
     }
 
@@ -70,8 +74,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = \SS\myModel\User::find($id);
-        return View('userViews.userEdit',['user'=>$user]);
+        $user = User::find($id);
+        $carrer = Career::lists('name', 'id');
+        return View('userViews.userEdit',['user'=>$user], compact('carrer'));
     }
 
     /**
@@ -83,13 +88,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = \SS\myModel\User::find($id);
-        $user->id       = $request->id;
-        $user->name     = $request->name;
-        $user->e_mail   = $request->e_mail;
+        $user = User::find($id);
+        $user->id           = $request->id;
+        $user->name         = $request->name;
+        $user->e_mail       = $request->e_mail;
+        $user->role         = $request->role;
+        $user->career_id    = $request->carrer;
         $user->save();
         Session::flash('message','¡Usuario actualizado correctamente!');
-        return Redirect::to('\user');
+        return Redirect::to('user');
     }
 
     /**
@@ -100,6 +107,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        Session::flash('message','¡Usuario eliminado correctamente!');
+        return Redirect::to('user');
     }
 }

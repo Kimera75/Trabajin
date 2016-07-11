@@ -1,5 +1,4 @@
 $(function() {
-
     $('#side-menu').metisMenu();
     $('.datepick').datepicker({
         autoclose:true,
@@ -7,28 +6,120 @@ $(function() {
         todayHighlight: true,
         todayBtn: "linked"
     });
+
     $('.makeLoan').on('click',function(){
          $('#prestados-inte').val('');
          $('#cati-select').val('0');
          $('#arti-select').val('0');
-         $('#prestados-exte').val('');
+         $('#loan-arti').empty();
          $('#cati-select-exte').val('0');
          $('#arti-select-exte').val('0');
          $('.datepick').val('');
     });
     $('#btn-prestar').on('click',function(){
-        if( $('#prestados-inte').val().length < 1){
-            $('#prestados-inte').val($('#prestados-inte').val()+$('#arti-select option:selected').text());
-        }else{
-              $('#prestados-inte').val($('#prestados-inte').val()+' , '+$('#arti-select option:selected').text());
-        }      
+        var content = $('#arti-select option:selected').text();
+        $('#loan-arti').append('<div class="input-group mg-top col-xs-12 col-sm-12 col-md-8 rmdiv"><span class="input-group-btn"><button type="button" class="btn btn-danger del-loan">x</button></span><input class="form-control" value="'+ content +'" disabled></div>'); 
+        $(document).on('click', '.del-loan', function(e){
+            $(this).parents('.rmdiv').remove();
+        });
     });
+
+
     $('#btn-prestar-exte').on('click',function(){
-        if( $('#prestados-exte').val().length < 1){
-            $('#prestados-exte').val($('#prestados-exte').val()+$('#arti-select-exte option:selected').text());
-        }else{
-              $('#prestados-exte').val($('#prestados-exte').val()+' , '+$('#arti-select-exte option:selected').text());
-        }      
+        var content = $('#arti-select-exte option:selected').text();
+        $('#loan-arti-exte').append('<div class="input-group mg-top col-xs-12 col-sm-12 col-md-8 rmdiv"><span class="input-group-btn"><button type="button" class="btn btn-danger del-loan">x</button></span><input class="form-control" value="'+ content +'" disabled></div>')
+        $(document).on('click', '.del-loan', function(e){
+            $(this).parents('.rmdiv').remove();
+        });   
+    });
+
+    $('#dt_article').bootstrapTable({
+        pagination: true,
+        pageSize: 5,
+        search: true,
+        showToggle: true,
+        showColumns: true,
+        columns: [{
+            field: 'id',
+            title: '#',
+            class: 'title-table'
+        },{
+            field: 'category',
+            title: 'Categoria',
+            class: 'title-table'
+        },{
+            field: 'name',
+            title: 'Nombre',
+            class: 'title-table'
+        },{
+            field: 'desc',
+            title: 'Descripcion',
+            class: 'title-table'
+        },{
+            field: 'cant',
+            title: 'Cantidad',
+            class: 'title-table'
+        },{
+            field: 'Actions',
+            title: 'Acciones',
+            class: 'title-table'
+        }] 
+    });
+
+    $('#dt_cat').bootstrapTable({
+        pagination: true,
+        pageSize: 5,
+        search: true,
+        showToggle: true,
+        showColumns: true,
+        columns: [{
+            field: 'id',
+            title: '#',
+            class: 'title-table'
+        },{
+            field: 'Nombre',
+            title: 'Nombre de la categoria',
+            class: 'title-table'
+        },{
+            field: 'Actions',
+            title: 'Acciones',
+            class: 'title-table'
+        }] 
+    });        
+    $('#dt-tableUsers').bootstrapTable({
+        pagination: true,
+        pageSize: 5,
+        search: true,
+        showToggle: true,
+        showColumns: true,
+        columns: [{
+            field: 'id',
+            title: '#',
+            class: 'title-table'
+        },{
+            field: 'Nombre',
+            title: 'Nombre',
+            class: 'title-table'
+        },{
+            field: 'email',
+            title: 'Correo Electronico',
+            class: 'title-table'
+        },{
+            field: 'Role',
+            title: 'Rol',
+            class: 'title-table'
+        },{
+            field: 'Career',
+            title: 'Carrera',
+            class: 'title-table'
+        },{
+            field: 'Actions',
+            title: 'Acciones',
+            class: 'title-table'
+        }],
+        onRefresh: function(){ 
+            $('#dt-tableUsers').bootstrapTable('refresh');  
+        }       
     });
 });
 

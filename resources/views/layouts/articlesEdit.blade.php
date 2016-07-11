@@ -4,12 +4,17 @@
 <div class="row">
 	<h2>Articulos</h2>
 	<div class="col-xs-12 col-sm-12 col-md-6">
-     	{!!Form::open(array('route'=>'article.store','method'=>'POST'))!!}
+	    {!! Form::model($arti,array('route' => ['article.update', $arti->id], 'method' => 'PUT')) !!}
 	    	@include('templates.form-article')
 	    	<div class="form-group pull-right mg-top">
-	    		{!!Form::submit('Registrar Articulo', array('class' => 'btn btn-primary'))!!}
+	    		{!!Form::submit('Guardar Cambios', array('class' => 'btn btn-success'))!!}	    		
 	    	</div>	    
-     	{!! Form::close() !!}
+	    {!! Form::close() !!}
+		{!!Form::open(array('route' => ['article.destroy', $arti->id], 'method' => 'DELETE'))!!}
+	    	<div class="form-group pull-right mg-top" style="margin-right:15px;">
+	    		{!!Form::submit('Eliminar Articulo', array('class' => 'btn btn-danger'))!!}
+	    	</div>
+		{!!Form::close()!!}
 	</div>
 	<div class="hidden-xs hidden-sm col-sm-4 col-md-offset-2">
 	    <p class="info-parrafo">

@@ -13,8 +13,8 @@ class CreateArticlesCategoriesTable extends Migration
     public function up()
     {
         Schema::create('articles_categories', function (Blueprint $table) {
-            $table->string('id',7)->primary()->default('0000000');
-            $table->string('name',50)->default('General');            
+            $table->string('id',7)->primary()->required();
+            $table->string('name',50)->required();            
             $table->timestamps();
         });
     }

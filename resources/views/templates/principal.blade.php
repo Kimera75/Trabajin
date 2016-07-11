@@ -15,18 +15,20 @@
     {!!Html::style('css/vendor/metisMenu.min.css')!!}
     {{-- <link href="css/vendor/metisMenu.min.css" rel="stylesheet"> --}}
 
-    <!-- Custom CSS -->
-    {!!Html::style('css/main.css')!!}    
-    {{--  <link href="css/main.css" rel="stylesheet"> --}}
-
     <!-- Custom Fonts -->
     {!!Html::style('css/vendor/font-awesome/css/font-awesome.min.css')!!}
     {{-- <link href="css/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> --}}
-    <!-- Jquery DataTables css -->
-    <!-- <link rel="stylesheet" href="css/vendor/jquery-dtb.css"> -->
+
     <!-- bootstrap datepicker -->
     {!!Html::style('css/vendor/bootstrap-datepicker.css')!!}
     {{-- <link rel="stylesheet" href="css/vendor/bootstrap-datepicker.css"> --}}
+
+    {{-- Boostrap DataTable --}}
+    {!!Html::style('css/vendor/bootstrap-table.css')!!}
+
+    <!-- Custom CSS -->
+    {!!Html::style('css/main.css')!!}    
+    {{--  <link href="css/main.css" rel="stylesheet"> --}}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{!!URL::to('/')!!}">Catalogo Web</a>
+                <a class="navbar-brand" href="{!!URL::to('/')!!}">Catálogo Web</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
@@ -87,11 +89,11 @@
                             <ul class="sub-nav nav nav-second-level">
                                 <li>
                                     <a href="{!!URL::to('/user/create')!!}" >
-                                        <i class="fa fa-plus-circle fa-fw"></i> Agregar/Eliminar Usuarios
+                                        <i class="fa fa-plus-circle fa-fw"></i> Agregar Usuarios
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{!!URL::to('/user')!!}">
+                                    <a href="{!!URL::to('user')!!}">
                                         <i class="fa fa-users fa-fw"></i>
                                         Ver Usuarios
                                     </a>
@@ -105,7 +107,7 @@
                                 <li>
                                     <a href="{!!URL::to('/article/create')!!}">
                                         <i class="fa fa-plus-circle fa-fw"></i> 
-                                        Agregar/Eliminar Articulos
+                                        Agregar Articulos
                                     </a>
                                 </li>
                                 <li>                                    
@@ -118,36 +120,36 @@
                             <!-- /.nav-second-level -->
                         </li> 
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw fa-2x"></i> Categorias<span class="fa arrow app-icon"></span></a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw fa-2x"></i> Categorías<span class="fa arrow app-icon"></span></a>
                             <ul class="sub-nav nav nav-second-level">
                                 <li>
                                     <a href="{!!URL::to('/category/create')!!}">
                                         <i class="fa fa-plus-circle fa-fw"></i> 
-                                        Agregar/Eliminar Categorias
+                                        Agregar Categorías
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{!!URL::to('/category')!!}">
                                          <i class="fa fa-bars fa-fw"></i> 
-                                        Ver Categorias
+                                        Ver Categorías
                                     </a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li> 
                         <li>
-                            <a href="#"><i class="fa fa-university fa-fw fa-2x"></i> Prestamos<span class="fa arrow app-icon"></span></a>
+                            <a href="#"><i class="fa fa-university fa-fw fa-2x"></i> Préstamos<span class="fa arrow app-icon"></span></a>
                             <ul class="sub-nav nav nav-second-level">
                                 <li>
-                                    <a href="#">
+                                    <a href="{!!URL::to('/delivery')!!}">
                                         <i class="fa fa-exchange fa-fw"></i> 
                                         Entrega
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{!!URL::to('/loans')!!}">
                                         <i class="fa fa-share-alt fa-fw"></i>                
-                                        Prestamos
+                                        Préstamos
                                     </a>                                    
                                 </li>
                             </ul>
@@ -165,6 +167,11 @@
                                     <a href="#">
                                         <i class="fa fa-file-pdf-o fa-fw"></i>
                                         Reportes</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-wrench fa-fw"></i>
+                                        Generales</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -197,12 +204,13 @@
     <!-- Metis Menu Plugin JavaScript -->
     {!!Html::script('js/vendor/metisMenu.min.js')!!}
     {{-- <script src="js/vendor/metisMenu.min.js"></script> --}}
-    <!-- Jquery DataTables -->
-    <!-- <script src="js/vendor/jquery-dtb.min.js"></script>
-    // <script src="js/vendor/jquery-dtb-bootstrap.js"></script> -->
+
     <!-- bootstrap datePicker -->
     {!!Html::script('js/vendor/bootstrap-datepicker.js')!!}
     {{-- <script src="js/vendor/bootstrap-datepicker.js"></script> --}}
+
+    {{-- Bootstrap DataTable --}}
+    {!!Html::script('js/vendor/bootstrap-table.js')!!}
 
     <!-- Custom Theme JavaScript -->
     {!!Html::script('js/main.js')!!}

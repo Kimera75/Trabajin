@@ -14,6 +14,8 @@ Route::get('/',function(){
 	return view('index');
 });
 Route::get('/config/sanciones', 'SanctionsController@index');
+Route::get('/loans', 'LoansController@index');
+Route::get('/delivery', 'LoansController@delivery');
 
 Route::resource('user','UserController');
 Route::resource('article','ArticlesController');
