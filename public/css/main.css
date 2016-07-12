@@ -404,6 +404,9 @@ table.dataTable thead .sorting:after {
 .mg-bot{
     margin-bottom: 30px;
 }
+.mg-right{
+    margin-right: 50px;
+}
 .bordeado{
     border-top: 1px solid #DBD9D9;    
 }
@@ -426,6 +429,9 @@ table.dataTable thead .sorting:after {
 }
 .fl{
     margin-right: 10px;
+}
+#loan-table{
+    text-align: justify;
 }
 @media(max-width: 768px){
     .center-only-sm{

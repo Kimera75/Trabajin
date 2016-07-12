@@ -8,11 +8,16 @@ $(function() {
     });
 
     $('.makeLoan').on('click',function(){
-         $('#prestados-inte').val('');
-         $('#cati-select').val('0');
+        //interno
+         $('#prestados-inte').val('');         
+         $('#id_user').val('');         
+         $('#cat-selec').val('01');
          $('#arti-select').val('0');
          $('#loan-arti').empty();
-         $('#cati-select-exte').val('0');
+         //externo
+         $('#id_user_exte').val('');
+         $('#cat-selec_exte').val('01');
+         $('#loan-arti-exte').empty();
          $('#arti-select-exte').val('0');
          $('.datepick').val('');
     });
@@ -31,6 +36,27 @@ $(function() {
         $(document).on('click', '.del-loan', function(e){
             $(this).parents('.rmdiv').remove();
         });   
+    });
+
+    $('#dt-tableLoan').bootstrapTable({
+        pagination: true,
+        pageSize: 5,
+        search: true,
+        showToggle: true,
+        showColumns: true,
+        columns: [{
+            field: 'arti',
+            title: 'Articulo',
+            class: 'title-table'
+        },{
+            field: 'quantity',
+            title: 'Cantidad',
+            class: 'title-table'
+        },{
+            field: 'state',
+            title: 'Status del préstamo',
+            class: 'title-table'
+        }] 
     });
 
     $('#dt_article').bootstrapTable({

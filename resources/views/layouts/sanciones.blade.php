@@ -2,67 +2,7 @@
 
 @section('content')
 	<div class="row title-section"><h2>Sanciones</h2></div>
-	<div class="row">
-	    <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#modal-charge">Cobrar</button>
-
-	    <div class="modal fade" tabindex="-1"  id="modal-charge">
-	      <div class="modal-dialog" role="document">
-	        <div class="modal-content">
-	          <div class="modal-header">
-	            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	              <span aria-hidden="true">&times;</span>
-	            </button>
-	            <h4 class="modal-title">Cobrar</h4>
-	          </div>
-	          <div class="modal-body">
-	            <div class="row">                
-	                <form action="">  
-	                <div class="col-xs-12 col-sm-12 col-md-12 mg-top">               
-	                    <div class="col-xs-12 col-sm-8 col-md-6">
-	                        <label for="">Codigo del usuario:</label>
-	                        <div class="input-group">
-	                          <input type="text" class="form-control" placeholder="Codigo...">
-	                          <span class="input-group-btn">
-	                            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button>
-	                          </span>
-	                        </div>
-	                    </div>
-	                </div>
-	                <div class="col-xs-12 col-sm-12 col-md-12 mg-top">  
-	                    <div class="col-xs-12 col-sm-8 col-md-6">
-	                        <label for="">Nombre del usuario:</label>
-	                        <div class="input-group">
-	                          <input type="text" class="form-control" placeholder="Nombre..." disabled>                                          
-	                        </div>
-	                    </div>  
-	                </div>
-	                <div class="col-xs-12 col-sm-12 col-md-12 mg-top">  
-	                    <div class="col-xs-12 col-sm-8 col-md-6">
-	                        <label for="">Nombre del Articulo:</label>
-	                        <div class="input-group">
-	                          <input type="text" class="form-control" placeholder="Nombre del articulo..." disabled>                         
-	                        </div>
-	                    </div>  
-	                </div>
-	                <div class="col-xs-12 col-sm-12 col-md-12 mg-top">  
-	                    <div class="col-xs-12 col-sm-8 col-md-6">
-	                        <label for="">Multa</label>
-	                        <div class="input-group">
-	                          <input type="text" class="form-control" placeholder="Total a pagar..." disabled>                         
-	                        </div>
-	                    </div>  
-	                </div>                      
-	                </form>
-	            </div>
-	          </div>
-	          <div class="modal-footer">
-	            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-	            <button type="button" class="btn btn-success">Cobrar</button>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-
+	<div class="row">	  
 	    <div class="row mg-top_2x">
 	        <fieldset>
 	            <legend class="center-only-sm">Configuraciones</legend>

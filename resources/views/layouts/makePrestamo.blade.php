@@ -1,7 +1,7 @@
 @extends('templates.principal')
 
 @section('content')
-<div class="row title-section"><h2>Préstamos</h2></div>
+<div class="row title-section"><h2>Hacer Préstamo</h2></div>
 <div class="row mg-top text-center">
     <div class="col xs 12 col-sm 6 col-md-6 mg-top">
         <button class="btn btn-success btn-lg makeLoan" data-toggle="modal" data-target="#modal-interno">Préstamo Interno</button>
@@ -25,22 +25,22 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <h4 class="modal-title"><i class="fa fa-home fa-fw"></i>Prestamo interno</h4>
-      </div>      
-      <form action="" class="text-center">
+      </div>
+      {!!Form::open(array('class' => 'text-center'))!!}
           <div class="modal-body">                                                
            {!!Form::label('code','Codigo del usuario', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-lock"></span>
                 </div>
-                {!!Form::text('id_user',null,array('class' => 'form-control', 'palceholder' => 'Codigo'))!!}
+                {!!Form::text('id_user',null,array('class' => 'form-control', 'palceholder' => 'Codigo', 'id' => 'id_user'))!!}
             </div>
             {!!Form::label('cat','Categorias:', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-indent-left"></span>
                 </div>
-                {!!Form::select('category',$categorys,null,array('class' => 'form-control'))!!}
+                {!!Form::select('category',$categorys,null,array('class' => 'form-control', 'id' => 'cat-selec'))!!}
             </div>
             {!!Form::label('article','Articulos:', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
@@ -70,7 +70,7 @@
             <input type="submit" class="btn btn-success" data-dismiss="modal" value="Realizar Préstamo">
             <button class="btn btn-warning" data-dismiss="modal">Cancelar</button>
           </div>
-      </form>                     
+      {!!Form::close()!!}                     
     </div>
   </div>
 </div> <!-- /.modal-interno -->
@@ -85,26 +85,23 @@
         </button>
         <h4 class="modal-title"><i class="fa fa-globe fa-fw"></i>Préstamo externo</h4>
       </div>
-      <form action="" class="text-center">
-          <div class="modal-body">                                                
-            <label for="">Codigo del Usuario:</label>
+      {!!Form::open(array('class' => 'text-center'))!!}
+        <div class="modal-body">                                                
+            {!!Form::label('code','Codigo del usuario', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-lock"></span>
                 </div>
-                <input type="text" class="form-control" placeholder="Codigo">
+                {!!Form::text('id_user',null,array('class' => 'form-control', 'palceholder' => 'Codigo', 'id' => 'id_user_exte'))!!}
             </div>
-            <label for="" class="mg-top">Categorias:</label>
+            {!!Form::label('cat','Categorias:', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-indent-left"></span>
                 </div>
-                <select name="" id="cati-select-exte" class="form-control">
-                    <option value="0">Categorias</option>
-                    <option value="1">Categoria 1</option>
-                </select>
+                {!!Form::select('category',$categorys,null,array('class' => 'form-control', 'id' => 'cat-selec_exte'))!!}
             </div>
-            <label for="" class="mg-top">Articulos:</label>
+           {!!Form::label('article','Articulos:', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-book"></span>
@@ -117,20 +114,19 @@
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3 mg-top">
                 <button type="button" class="btn btn-primary" id="btn-prestar-exte">Agregar a lista</button>
             </div>
-            <label for="" class="mg-top">Nº de Articulos</label>
-            <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3" id="loan-arti-exte">    
-                
-            </div>
-            <label for="" class="mg-top">Fecha préstamo:</label>
+            {!!Form::label('Num-arti', 'Numero de articulos:', array('class' => 'mg-top'))!!}
+            <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3" id="loan-arti-exte">                      
+            </div>        
+            {!!Form::label('date','Fecha préstamo:',array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3 date">
-                <input type='text' class="form-control datepick">
+                {!!Form::text('date',null,array('class' => 'form-control datepick'))!!}               
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
             </div>
-            <label for="" class="mg-top">Fecha entrega:</label>
+           {!!Form::label('date','Fecha entrega:',array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3 date">
-                <input type='text' class="form-control datepick">
+                {!!Form::text('date',null,array('class' => 'form-control datepick'))!!}               
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>

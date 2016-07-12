@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Cusur Catalogo Web</title>
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
     <!-- Bootstrap Core CSS -->
     {!!Html::style('css/vendor/bootstrap.min.css')!!}
     {{-- <link href="css/vendor/bootstrap.min.css" rel="stylesheet"> --}}
@@ -141,15 +142,21 @@
                             <a href="#"><i class="fa fa-university fa-fw fa-2x"></i> Préstamos<span class="fa arrow app-icon"></span></a>
                             <ul class="sub-nav nav nav-second-level">
                                 <li>
+                                    <a href="{!!URL::to('/loans')!!}">
+                                        <i class="fa fa-university fa-fw"></i> 
+                                        Préstamos 
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="{!!URL::to('/delivery')!!}">
                                         <i class="fa fa-exchange fa-fw"></i> 
                                         Entrega
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{!!URL::to('/loans')!!}">
+                                    <a href="{!!URL::to('/make')!!}">
                                         <i class="fa fa-share-alt fa-fw"></i>                
-                                        Préstamos
+                                        Hacer Préstamo
                                     </a>                                    
                                 </li>
                             </ul>
@@ -164,12 +171,12 @@
                                         Sanciones</a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{!!URL::to('/config/reports')!!}">
                                         <i class="fa fa-file-pdf-o fa-fw"></i>
                                         Reportes</a>
                                 </li>
-                                <li>
-                                    <a href="#">
+                                <li>                                    
+                                    <a href="{!!URL::to('/config/all')!!}">
                                         <i class="fa fa-wrench fa-fw"></i>
                                         Generales</a>
                                 </li>

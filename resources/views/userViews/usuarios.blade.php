@@ -27,8 +27,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
-    </div>
-  {{--   {!! $users->render() !!} --}}
-
+    </div>    
 @endsection
