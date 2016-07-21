@@ -404,6 +404,9 @@ table.dataTable thead .sorting:after {
 .mg-bot{
     margin-bottom: 30px;
 }
+.mg-right{
+    margin-right: 50px;
+}
 .bordeado{
     border-top: 1px solid #DBD9D9;    
 }
@@ -426,6 +429,45 @@ table.dataTable thead .sorting:after {
 }
 .fl{
     margin-right: 10px;
+}
+#loan-table{
+    text-align: justify;
+}
+.app-select>option{
+    padding: 6px;
+    border-bottom: .2px solid #DBD9D9;
+}
+.app-select>option:last-child{
+    border-bottom: none;
+}
+.app-select>option:first-child{
+    border-bottom: none;
+}
+ul.inner>li{  
+    padding: 6px !important;
+    border-bottom:  .2px solid #DBD9D9;
+}
+ul.inner>li:last-child{
+    border-bottom: none !important;
+}
+ul.inner>li:first-child{
+    border-bottom: none !important;
+}
+.borde{
+    border: 2px solid #353771;
+}
+.reporte{
+    box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+}
+.full-pa{
+    padding: 0 0 9px 0;
+}
+.title-reporte{
+    background-color: #8C8FFD;
+    color:white;
+}
+.title-reporte>h4{    
+    letter-spacing: 5px;
 }
 @media(max-width: 768px){
     .center-only-sm{

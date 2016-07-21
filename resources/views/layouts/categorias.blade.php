@@ -10,7 +10,7 @@
 <div class="row title-seccion"><h2>Categorias</h2></div>
 <div class="row">
         <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover" id="dt_cat">
+            <table class="table table-striped table-bordered table-hover dt-table" id="dt_cat">
                 <tbody>
                     @foreach($cats as $cat)
                     <tr>

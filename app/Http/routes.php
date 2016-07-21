@@ -13,10 +13,19 @@
 Route::get('/',function(){
 	return view('index');
 });
-Route::get('/config/sanciones', 'SanctionsController@index');
+// Reportes
+Route::get('/pdf/{report}', 'ReportsController@invoice');
+// Sanciones
+Route::get('/config/sanciones', 'SanctionsController@sanctions');
+Route::get('/config/all', 'SanctionsController@config');
+Route::get('/config/reports' , 'SanctionsController@report');
+// Préstamos
 Route::get('/loans', 'LoansController@index');
+Route::get('/make', 'LoansController@makeLoan');
 Route::get('/delivery', 'LoansController@delivery');
+Route::get('select/{id}', 'LoansController@getArticles');
 
+// User,Ariculos,Categorias
 Route::resource('user','UserController');
 Route::resource('article','ArticlesController');
 Route::resource('category','CategoryController');

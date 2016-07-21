@@ -1,6 +1,6 @@
 <div class="form-group">
 	{!!Form::label('cate', 'Categoria:')!!}
-	{!!Form::select('articles_category_id', $categorias ,null, array('placeholder' => 'Escoge una categoria', 'class' => 'form-control'))!!}
+	{!!Form::select('articles_category_id', $categorias ,null, array('placeholder' => 'Escoge una categoria', 'class' => 'form-control app-select'))!!}
 </div>
 <div class="form-group">
 	{!!Form::label('codi-art', 'Codigo del articulo')!!}
