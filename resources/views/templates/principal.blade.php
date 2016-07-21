@@ -27,6 +27,9 @@
     {{-- Boostrap DataTable --}}
     {!!Html::style('css/vendor/bootstrap-table.css')!!}
 
+    {{-- Bootstrap select-search --}}
+    {!!Html::style('css/vendor/bootstrap-select.css')!!}
+
     <!-- Custom CSS -->
     {!!Html::style('css/main.css')!!}    
     {{--  <link href="css/main.css" rel="stylesheet"> --}}
@@ -218,6 +221,9 @@
 
     {{-- Bootstrap DataTable --}}
     {!!Html::script('js/vendor/bootstrap-table.js')!!}
+
+    {{-- Bootstrap select-search --}}
+    {!!Html::script('js/vendor/bootstrap-select.js')!!}
 
     <!-- Custom Theme JavaScript -->
     {!!Html::script('js/main.js')!!}

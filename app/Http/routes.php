@@ -13,7 +13,9 @@
 Route::get('/',function(){
 	return view('index');
 });
-//Sanciones
+// Reportes
+Route::get('/pdf/{report}', 'ReportsController@invoice');
+// Sanciones
 Route::get('/config/sanciones', 'SanctionsController@sanctions');
 Route::get('/config/all', 'SanctionsController@config');
 Route::get('/config/reports' , 'SanctionsController@report');
@@ -21,8 +23,9 @@ Route::get('/config/reports' , 'SanctionsController@report');
 Route::get('/loans', 'LoansController@index');
 Route::get('/make', 'LoansController@makeLoan');
 Route::get('/delivery', 'LoansController@delivery');
+Route::get('select/{id}', 'LoansController@getArticles');
 
-//User,Ariculos,Categorias
+// User,Ariculos,Categorias
 Route::resource('user','UserController');
 Route::resource('article','ArticlesController');
 Route::resource('category','CategoryController');

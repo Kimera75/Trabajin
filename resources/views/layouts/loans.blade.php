@@ -10,7 +10,7 @@
 <div class="row title-section"><h2>Préstamos</h2></div>    
     <div class="row">
         <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover" id="dt-tableLoan">
+            <table class="table table-striped table-bordered table-hover dt-table" id="dt-tableLoan">
                 <tbody>
                     @foreach($loans as $loan)
                     <tr>

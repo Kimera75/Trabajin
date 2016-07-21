@@ -1,5 +1,38 @@
 $(function() {
+    // Selects dependientes para prestamo interno
+    $('#cat-selec').change(function(event){
+        $.get("select/" + event.target.value + "", function(response, state){
+            if (response.length > 0){
+                $('#arti-selec').empty();
+                $('#arti-selec').append("<option value=''>Escoge el articulo</option");
+                for (var i = 0; i < response.length; i++) {
+                    $('#arti-selec').append("<option value='"+ response[i].id + "'>" + response[i].name + "</option");
+                };
+            }else {
+                $('#arti-selec').empty();
+                $('#arti-selec').append("<option value=''>Escoge el articulo</option");
+            }                        
+        });
+    });
+
+    // Selects dependientes para prestamo externo
+    $('#cat-selec_exte').change(function(event){
+        $.get("select/" + event.target.value + "", function(response, state){
+            if (response.length > 0){
+                $('#arti-selec-exte').empty();
+                $('#arti-selec-exte').append("<option value=''>Escoge el articulo</option");
+                for (var i = 0; i < response.length; i++) {
+                    $('#arti-selec-exte').append("<option value='"+ response[i].id + "'>" + response[i].name + "</option");
+                };
+            }else {
+                $('#arti-selec-exte').empty();
+                $('#arti-selec-exte').append("<option value=''>Escoge el articulo</option");
+            }                        
+        });
+    });
+    
     $('#side-menu').metisMenu();
+    $('.search-sel').selectpicker();
     $('.datepick').datepicker({
         autoclose:true,
         format: "dd/mm/yyyy",
@@ -7,22 +40,24 @@ $(function() {
         todayBtn: "linked"
     });
 
-    $('.makeLoan').on('click',function(){
+    $('.makeLoan').on('click',function(){        
         //interno
-         $('#prestados-inte').val('');         
-         $('#id_user').val('');         
-         $('#cat-selec').val('01');
-         $('#arti-select').val('0');
-         $('#loan-arti').empty();
+        $('#prestados-inte').val('');         
+        $('#id_user').val('');
+        $('#cat-selec').val('');
+        $('#arti-selec').empty();
+        $('#loan-arti').empty();        
+        $('#arti-selec').append("<option value=''>Escoge el articulo</option");
          //externo
          $('#id_user_exte').val('');
-         $('#cat-selec_exte').val('01');
+         $('#cat-selec_exte').val('');
          $('#loan-arti-exte').empty();
-         $('#arti-select-exte').val('0');
+         $('#arti-selec-exte').empty();
          $('.datepick').val('');
+         $('#arti-selec-exte').append("<option value=''>Escoge el articulo</option");
     });
     $('#btn-prestar').on('click',function(){
-        var content = $('#arti-select option:selected').text();
+        var content = $('#arti-selec option:selected').text();
         $('#loan-arti').append('<div class="input-group mg-top col-xs-12 col-sm-12 col-md-8 rmdiv"><span class="input-group-btn"><button type="button" class="btn btn-danger del-loan">x</button></span><input class="form-control" value="'+ content +'" disabled></div>'); 
         $(document).on('click', '.del-loan', function(e){
             $(this).parents('.rmdiv').remove();
@@ -43,7 +78,7 @@ $(function() {
         pageSize: 5,
         search: true,
         showToggle: true,
-        showColumns: true,
+        showColumns: true,   
         columns: [{
             field: 'arti',
             title: 'Articulo',
@@ -59,12 +94,12 @@ $(function() {
         }] 
     });
 
-    $('#dt_article').bootstrapTable({
+    $('#dt_article').bootstrapTable({ 
         pagination: true,
         pageSize: 5,
         search: true,
         showToggle: true,
-        showColumns: true,
+        showColumns: true,         
         columns: [{
             field: 'id',
             title: '#',
@@ -97,7 +132,7 @@ $(function() {
         pageSize: 5,
         search: true,
         showToggle: true,
-        showColumns: true,
+        showColumns: true,      
         columns: [{
             field: 'id',
             title: '#',
@@ -117,7 +152,7 @@ $(function() {
         pageSize: 5,
         search: true,
         showToggle: true,
-        showColumns: true,
+        showColumns: true,      
         columns: [{
             field: 'id',
             title: '#',
@@ -142,10 +177,7 @@ $(function() {
             field: 'Actions',
             title: 'Acciones',
             class: 'title-table'
-        }],
-        onRefresh: function(){ 
-            $('#dt-tableUsers').bootstrapTable('refresh');  
-        }       
+        }]  
     });
 });
 

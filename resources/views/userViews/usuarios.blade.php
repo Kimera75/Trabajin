@@ -10,7 +10,7 @@
     <div class="row title-seccion"><h2>Usuarios</h2></div>
     <div class="row">
         <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover" id="dt-tableUsers">
+            <table class="table table-striped table-bordered table-hover dt-table" id="dt-tableUsers">
                 <tbody>
                     @foreach($users as $user)
                     <tr>

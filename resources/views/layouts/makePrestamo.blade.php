@@ -6,13 +6,13 @@
     <div class="col xs 12 col-sm 6 col-md-6 mg-top">
         <button class="btn btn-success btn-lg makeLoan" data-toggle="modal" data-target="#modal-interno">Préstamo Interno</button>
         <div class="hidden-xs col-sm-12 col-md-12 mg-top">
-            <p class="info-parrafo">* Dentro del préstamo interno conciernen todos los alumnos y administrativos que piden el material para el uso del mismo, dentro del laboratorio. Se usan las politicas asignadas por el adminsitrador. Para mas informacion valla a<br><a href="">Configuraciones</a> <strong>></strong> <a href="">Sanciones</a></p></p>
+            <p class="info-parrafo">* Dentro del préstamo interno conciernen todos los alumnos y administrativos que piden el material para el uso del mismo, dentro del laboratorio. Se usan las politicas asignadas por el adminsitrador. Para mas informacion valla a<br><a href="{!!URL::to('/config/sanciones')!!}">Configuraciones</a> <strong>></strong> <a href="{!!URL::to('/config/sanciones')!!}">Sanciones</a></p></p>
         </div>
     </div>
     <div class="col xs 12 col-sm 6 col-md-6 mg-top">
         <button class="btn btn-info btn-lg makeLoan" data-toggle="modal" data-target="#modal-externo">Préstamo Externo</button>
         <div class="hidden-xs col-sm-12 col-md-12 mg-top">
-            <p class="info-parrafo">* Dentro del préstamo externo incluyen los alumnos y administrativos que piden el material para un uso externo del laboratorio ya sea dentro de un rango de dias o con las politicas que se manejen en la seccion de <br><a href="">Configuraciones</a> <strong>></strong> <a href="">Sanciones</a></p>
+            <p class="info-parrafo">* Dentro del préstamo externo incluyen los alumnos y administrativos que piden el material para un uso externo del laboratorio ya sea dentro de un rango de dias o con las politicas que se manejen en la seccion de <br><a href="{!!URL::to('/config/sanciones')!!}">Configuraciones</a> <strong>></strong> <a href="{!!URL::to('/config/sanciones')!!}">Sanciones</a></p>
         </div>
     </div>
 </div> <!-- /.row -->
@@ -33,25 +33,22 @@
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-lock"></span>
                 </div>
-                {!!Form::text('id_user',null,array('class' => 'form-control', 'palceholder' => 'Codigo', 'id' => 'id_user'))!!}
+                {!!Form::select('id_user',$users,null,array('class' => 'form-control app-select search-sel', 'placeholder' => 'Escoge el usuario', 'id' => 'id_user', 'data-live-search' => 'true'))!!}
             </div>
             {!!Form::label('cat','Categorias:', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-indent-left"></span>
                 </div>
-                {!!Form::select('category',$categorys,null,array('class' => 'form-control', 'id' => 'cat-selec'))!!}
+                {!!Form::select('category',$categorys,null,array('class' => 'form-control app-select', 'id' => 'cat-selec','placeholder' => 'Escoge la categoria'))!!}
             </div>
             {!!Form::label('article','Articulos:', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-book"></span>
                 </div>
-                <select name="" id="arti-select" class="form-control">
-                    <option value="0">Articulos</option>
-                    <option value="1">Articulo 1</option>
-                </select>
-            </div>
+                    {!!Form::select('articulo',['placeholder' => 'Escoge el articulo'],null,['class' => 'form-control app-select', 'id' => 'arti-selec'])!!}
+                </div>
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3 mg-top">
                 <button type="button" class="btn btn-primary" id="btn-prestar">Agregar a lista</button>
             </div>
@@ -92,24 +89,21 @@
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-lock"></span>
                 </div>
-                {!!Form::text('id_user',null,array('class' => 'form-control', 'palceholder' => 'Codigo', 'id' => 'id_user_exte'))!!}
+                 {!!Form::select('id_user',$users,null,array('class' => 'form-control app-select search-sel', 'placeholder' => 'Escoge el usuario', 'id' => 'id_user_exte', 'data-live-search' => 'true'))!!}
             </div>
             {!!Form::label('cat','Categorias:', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-indent-left"></span>
                 </div>
-                {!!Form::select('category',$categorys,null,array('class' => 'form-control', 'id' => 'cat-selec_exte'))!!}
+                {!!Form::select('category',$categorys,null,array('class' => 'form-control app-select', 'id' => 'cat-selec_exte', 'placeholder' => 'Escoge la categoria'))!!}
             </div>
            {!!Form::label('article','Articulos:', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-book"></span>
                 </div>
-                <select name="" id="arti-select-exte" class="form-control">
-                    <option value="0">Articulos</option>
-                    <option value="1">Articulo 1</option>
-                </select>
+               {!!Form::select('articulo',['placeholder' => 'Escoge el articulo'],null,['class' => 'form-control app-select', 'id' => 'n'])!!}
             </div>
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3 mg-top">
                 <button type="button" class="btn btn-primary" id="btn-prestar-exte">Agregar a lista</button>

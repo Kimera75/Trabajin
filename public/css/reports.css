@@ -1,0 +1,26 @@
+html{
+	font-family: sans-serif;	
+}
+body{
+	margin: 0 0;
+}
+
+/* USUARIOS */
+.table{
+	width: 100%;
+	text-align: center;
+}
+thead>tr>th{
+	background-color: #000000;
+	color:white;
+	font-size: 15px;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+.table>tbody>tr>td{
+	padding: 15px;
+}
+
+.table>tbody>tr:nth-child(even){
+	background-color: #E7E7E7;
+}
