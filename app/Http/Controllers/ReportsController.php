@@ -20,11 +20,11 @@ class ReportsController extends Controller
     	// $users = User::All();
     	// return View('reports.UserReporte', compact('users'));
     	if ($report == 'Users'){
-    		$users = User::All();
+    		$users = User::All()->sortBy("name");
 			$pdf = PDF::loadView('reports.UserReporte', ['users' => $users]);
 			return $pdf->stream('usuarios.pdf');
     	} else  if($report == 'Articles'){
-    		$articles = Article::All();
+    		$articles = Article::All()->sortBy("name");
     		$pdf = PDF::loadView('reports.ArticlesReport', ['articles' => $articles]);
     		return $pdf->stream('articulos.pdf');
     	} else if($report == 'Loans'){

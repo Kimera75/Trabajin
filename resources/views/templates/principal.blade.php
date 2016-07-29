@@ -193,7 +193,7 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        <div id="page-wrapper" style="padding-top:20px;">
+        <div id="page-wrapper" style="padding-top:20px;">        
             <div class="app-container">
                 @yield('content')
             </div>

@@ -18,7 +18,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Articulo::All();
+        $articles = Articulo::All()->sortBy("name");
         return View('layouts.articulos', compact('articles'));
     }
 

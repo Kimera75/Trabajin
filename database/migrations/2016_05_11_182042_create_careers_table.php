@@ -13,7 +13,7 @@ class CreateCareersTable extends Migration
     public function up()
     {
         Schema::create('careers', function (Blueprint $table) {
-            $table->string('id',5)->primary()->required();
+            $table->increments('id',5)->primary()->required();
             $table->string('name',70)->required();
             $table->timestamps();
         });

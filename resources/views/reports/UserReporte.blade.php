@@ -13,6 +13,7 @@
 				<th>Codigo</th>
 				<th>Nombre</th>
 				<th>Correo</th>
+				<th>Carrera</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -21,6 +22,7 @@
 					<td>{{$user->id}}</td>
 					<td>{{$user->name}}</td>
 					<td>{{$user->e_mail}}</td>
+					<td>{{$user->career->name}}</td>
 				</tr>
 			@endforeach
 		</tbody>

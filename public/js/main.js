@@ -1,4 +1,20 @@
-$(function() {
+$(function(){
+
+    //Config cargar carrera seleccionadola desde el select
+    $('#updateCareer').change(function(){
+        if($('#updateCareer').val() != 0){
+            $('#updateCareertxt').val($('#updateCareer option:selected').text());
+            $('#updateCareerBtn').removeAttr('disabled');
+            $('#addCareerBtn').attr('disabled', true);
+            $('#delCareerBtn').removeAttr('disabled');
+            
+        } else{
+            $('#updateCareertxt').val('');
+            $('#addCareerBtn').removeAttr('disabled');
+            $('#updateCareerBtn').attr('disabled', true);
+            $('#delCareerBtn').attr('disabled', true);
+        }                
+    });   
     // Selects dependientes para prestamo interno
     $('#cat-selec').change(function(event){
         $.get("select/" + event.target.value + "", function(response, state){
@@ -146,7 +162,8 @@ $(function() {
             title: 'Acciones',
             class: 'title-table'
         }] 
-    });        
+    });    
+
     $('#dt-tableUsers').bootstrapTable({
         pagination: true,
         pageSize: 5,
@@ -179,6 +196,21 @@ $(function() {
             class: 'title-table'
         }]  
     });
+});
+
+
+// Cargar la vista de error 
+// Si no hay categorias no se puede registrar articulos
+$(function(){
+    // $('#category-has').on('click', function(){
+    //     alert($('#category-has option').length);
+    // });
+    if($('#category-has option').length <= 1){
+        $('#check').removeClass('nodisplay').addClass('haserror');
+    } else{
+        $('#check').removeClass('haserror').addClass('nodisplay');
+    }
+
 });
 
 //Loads the correct sidebar on window load,

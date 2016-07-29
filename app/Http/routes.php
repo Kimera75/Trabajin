@@ -10,15 +10,20 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// Login
+Route::get('login', 'LoginController@login');
+// Index
 Route::get('/',function(){
 	return view('index');
 });
 // Reportes
 Route::get('/pdf/{report}', 'ReportsController@invoice');
-// Sanciones
+// Configuraciones
 Route::get('/config/sanciones', 'SanctionsController@sanctions');
-Route::get('/config/all', 'SanctionsController@config');
 Route::get('/config/reports' , 'SanctionsController@report');
+Route::get('config/all', 'AppController@index');
+Route::post('new-career', 'AppController@addCareer');
+Route::get('del-career/{id}', 'AppController@deleteCareer');
 // Préstamos
 Route::get('/loans', 'LoansController@index');
 Route::get('/make', 'LoansController@makeLoan');

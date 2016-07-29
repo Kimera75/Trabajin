@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="row">
+	<div class="nodisplay" id="check">
+        <h2 class="text-center relative">Error! No hay registro de categorias disponible</h2>
+    </div>		
 	<h2>Articulos</h2>
 	<div class="col-xs-12 col-sm-12 col-md-6">
      	{!!Form::open(array('route'=>'article.store','method'=>'POST'))!!}

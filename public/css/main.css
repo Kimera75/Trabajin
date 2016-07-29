@@ -463,14 +463,36 @@ ul.inner>li:first-child{
     padding: 0 0 9px 0;
 }
 .title-reporte{
-    background-color: #8C8FFD;
+    background-color: #DFDFDF;
     color:white;
 }
 .title-reporte>h4{    
     letter-spacing: 5px;
 }
+.haserror{
+    position: absolute;
+    bottom: -25px;
+    left: 250px;
+    right: 0;   
+    z-index: 3;
+    top: 40px;
+    background: rgba(0,0,0,0.2);
+}
+.relative{
+    position: relative;
+    top:50%;
+    left:0;
+    color: black;
+    letter-spacing: 2px;
+}
+.nodisplay{
+    display: none;
+}
 @media(max-width: 768px){
     .center-only-sm{
         text-align: center;
+    }
+    .haserror{
+        left: 0;
     }
 }
