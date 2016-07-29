@@ -1,0 +1,57 @@
+body{
+	background: #E6E4E4;
+}
+h3{
+	letter-spacing: 5px;
+	font-size: 20px !important;
+}
+.section-header{
+	background: white;
+	height: 50%;	
+}
+.section-header>figure{
+	text-align: center;	
+}
+.mg-top{
+	margin-top: 10%;
+}
+.mg-top_2{
+	margin-top: 20px;
+}
+.mg-top_3{
+	margin-top: 40px;
+}
+.app-btn{
+	width: 60%;
+	background-color: transparent !important;
+	border: 1px solid #337ab7;
+	font-size: 15px;
+	color: #337ab7;
+	transition: .3s;
+}
+.app-btn:hover{
+	background: #337ab7 !important;
+	color: white !important;
+}
+.app-btn:active{
+	background: #3343B7 !important;
+	color: white !important;
+}
+.centrarLoading{
+	position: relative; 
+	top: 50%;
+	left:50%;
+	color:black;	
+}
+.loading{
+	position: absolute;
+	top:0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 20;	
+	background: rgba(0,0,0,0.2);
+}
+.hidden{
+	display: none;
+}

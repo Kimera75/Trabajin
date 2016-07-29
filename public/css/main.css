@@ -404,6 +404,9 @@ table.dataTable thead .sorting:after {
 .mg-bot{
     margin-bottom: 30px;
 }
+.mg-right{
+    margin-right: 50px;
+}
 .bordeado{
     border-top: 1px solid #DBD9D9;    
 }
@@ -427,8 +430,69 @@ table.dataTable thead .sorting:after {
 .fl{
     margin-right: 10px;
 }
+#loan-table{
+    text-align: justify;
+}
+.app-select>option{
+    padding: 6px;
+    border-bottom: .2px solid #DBD9D9;
+}
+.app-select>option:last-child{
+    border-bottom: none;
+}
+.app-select>option:first-child{
+    border-bottom: none;
+}
+ul.inner>li{  
+    padding: 6px !important;
+    border-bottom:  .2px solid #DBD9D9;
+}
+ul.inner>li:last-child{
+    border-bottom: none !important;
+}
+ul.inner>li:first-child{
+    border-bottom: none !important;
+}
+.borde{
+    border: 2px solid #353771;
+}
+.reporte{
+    box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+}
+.full-pa{
+    padding: 0 0 9px 0;
+}
+.title-reporte{
+    background-color: #DFDFDF;
+    color:white;
+}
+.title-reporte>h4{    
+    letter-spacing: 5px;
+}
+.haserror{
+    position: absolute;
+    bottom: -25px;
+    left: 250px;
+    right: 0;   
+    z-index: 3;
+    top: 40px;
+    background: rgba(0,0,0,0.2);
+}
+.relative{
+    position: relative;
+    top:50%;
+    left:0;
+    color: black;
+    letter-spacing: 2px;
+}
+.nodisplay{
+    display: none;
+}
 @media(max-width: 768px){
     .center-only-sm{
         text-align: center;
+    }
+    .haserror{
+        left: 0;
     }
 }

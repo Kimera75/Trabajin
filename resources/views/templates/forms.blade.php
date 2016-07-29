@@ -23,13 +23,13 @@
     {!!Form::label('carrer_name', 'Escogue la carrera:')!!}
     <div class="input-group">
         <div class="input-group-addon"><span class="glyphicon glyphicon-book"></span></div>    
-        {!!Form::select('carrer',$carrer, isset($user) ? $user->career_id : null, array('placeholder' => 'Escoge una carrera...','class'=>'form-control', 'required'))!!}  
+        {!!Form::select('carrer',$carrer, isset($user) ? $user->career_id : 0, array('placeholder' => 'Escoge una carrera...','class'=>'form-control app-select', 'required'))!!}  
     </div>
 </div>
 <div class="form-group">
     {!!Form::label('rol', 'Rol:')!!}
     <div class="input-group">
         <div class="input-group-addon"><span class="glyphicon glyphicon-briefcase"></span></div>
-        {!!Form::select('role', array('Estudiante' => 'Estudiante', 'Docente' => 'Docente'),isset($user) ? $user->role : 'Estudiante', ['placeholder' => 'Escoge el rol...','class'=>'form-control', 'required'])!!}  
+        {!!Form::select('role', array('Estudiante' => 'Estudiante', 'Docente' => 'Docente'),isset($user) ? $user->role : 'Estudiante', ['placeholder' => 'Escoge el rol...','class'=>'form-control app-select', 'required'])!!}  
     </div>
 </div>
