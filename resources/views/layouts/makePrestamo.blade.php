@@ -26,7 +26,7 @@
         </button>
         <h4 class="modal-title"><i class="fa fa-home fa-fw"></i>Prestamo interno</h4>
       </div>
-      {!!Form::open(array('class' => 'text-center'))!!}
+      {!!Form::open(array('action' => 'LoansController@addLoan', 'method' => 'POST', 'class' => 'text-center'))!!}
           <div class="modal-body">                                                
            {!!Form::label('code','Codigo del usuario', array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
@@ -42,19 +42,14 @@
                 </div>
                 {!!Form::select('category',$categorys,null,array('class' => 'form-control app-select', 'id' => 'cat-selec','placeholder' => 'Escoge la categoria'))!!}
             </div>
-            {!!Form::label('article','Articulos:', array('class' => 'mg-top'))!!}
+            {!!Form::label('article','Articulos:', array('class' => 'mg-top'))!!} 
+            <span class="glyphicon glyphicon-question-sign big" data-toggle="tooltip" data-placement="right" title="Para seleccionar mas articulos, solo manten la tecla 'CTRL' presionada y da 'click' sobre los articulos que quieras seleccionar"></span>     
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-book"></span>
                 </div>
-                    {!!Form::select('articulo',['placeholder' => 'Escoge el articulo'],null,['class' => 'form-control app-select', 'id' => 'arti-selec'])!!}
-                </div>
-            <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3 mg-top">
-                <button type="button" class="btn btn-primary" id="btn-prestar">Agregar a lista</button>
-            </div>
-            {!!Form::label('Num-arti', 'Numero de articulos:', array('class' => 'mg-top'))!!}
-            <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3" id="loan-arti">                      
-            </div>
+                    {!!Form::select('articulo[]',[],null,['class' => 'form-control app-select', 'id' => 'arti-selec', 'multiple' => 'true'])!!}
+                </div>           
             {!!Form::label('date','Fecha:',array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3 date">
                 {!!Form::text('date',null,array('class' => 'form-control datepick'))!!}               
@@ -64,7 +59,7 @@
             </div>                        
           </div>
            <div class="modal-footer">
-            <input type="submit" class="btn btn-success" data-dismiss="modal" value="Realizar Préstamo">
+            {!!Form::submit('Realizar Préstamo',array('class' => 'btn btn-success'))!!}            
             <button class="btn btn-warning" data-dismiss="modal">Cancelar</button>
           </div>
       {!!Form::close()!!}                     
@@ -99,21 +94,16 @@
                 {!!Form::select('category',$categorys,null,array('class' => 'form-control app-select', 'id' => 'cat-selec_exte', 'placeholder' => 'Escoge la categoria'))!!}
             </div>
            {!!Form::label('article','Articulos:', array('class' => 'mg-top'))!!}
-            <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">
+           <span class="glyphicon glyphicon-question-sign big" data-toggle="tooltip" data-placement="right" title="Para seleccionar mas articulos, solo manten la tecla 'CTRL' presionada y da 'click' sobre los articulos que quieras seleccionar"></span>
+            <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3">            
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-book"></span>
                 </div>
-               {!!Form::select('articulo',['placeholder' => 'Escoge el articulo'],null,['class' => 'form-control app-select', 'id' => 'n'])!!}
-            </div>
-            <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3 mg-top">
-                <button type="button" class="btn btn-primary" id="btn-prestar-exte">Agregar a lista</button>
-            </div>
-            {!!Form::label('Num-arti', 'Numero de articulos:', array('class' => 'mg-top'))!!}
-            <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3" id="loan-arti-exte">                      
-            </div>        
+               {!!Form::select('articulo[]',[],null,['class' => 'form-control app-select', 'multiple', 'id' => 'arti-selec-exte'])!!}
+            </div>                  
             {!!Form::label('date','Fecha préstamo:',array('class' => 'mg-top'))!!}
             <div class="input-group col-xs-12 col-sm-7 col-sm-offset-3 col-md-6 col-md-offset-3 date">
-                {!!Form::text('date',null,array('class' => 'form-control datepick'))!!}               
+                {!!Form::text('date',null,array('class' => 'form-control datepick'))!!} 
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>

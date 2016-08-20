@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->integer('num_sanctions')->unsigned()->default(0);
             $table->enum('locked_loans',['Si','No'])->default('No');
             $table->enum('active',['Si','No'])->default('Si');
-            $table->enum('role');
+            $table->string('role');
             $table->string('e_mail')->required()->unique();
            // $table->rememberToken();
             $table->timestamps();

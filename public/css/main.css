@@ -488,6 +488,18 @@ ul.inner>li:first-child{
 .nodisplay{
     display: none;
 }
+.rmdiv{
+    border-top: 2px solid #C2BDBD;
+    padding-top: 15px;
+    margin-bottom: 25px;
+}
+.rmdiv:first-child{
+    border-top: none;
+    padding-top: 0;    
+}
+.big{
+    font-size: 18px;
+}
 @media(max-width: 768px){
     .center-only-sm{
         text-align: center;

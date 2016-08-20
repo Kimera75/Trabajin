@@ -1,48 +1,31 @@
 $(function(){
 
-    //Config cargar carrera seleccionadola desde el select
-    $('#updateCareer').change(function(){
-        if($('#updateCareer').val() != 0){
-            $('#updateCareertxt').val($('#updateCareer option:selected').text());
-            $('#updateCareerBtn').removeAttr('disabled');
-            $('#addCareerBtn').attr('disabled', true);
-            $('#delCareerBtn').removeAttr('disabled');
-            
-        } else{
-            $('#updateCareertxt').val('');
-            $('#addCareerBtn').removeAttr('disabled');
-            $('#updateCareerBtn').attr('disabled', true);
-            $('#delCareerBtn').attr('disabled', true);
-        }                
-    });   
+    $('[data-toggle="tooltip"]').tooltip();
     // Selects dependientes para prestamo interno
     $('#cat-selec').change(function(event){
         $.get("select/" + event.target.value + "", function(response, state){
             if (response.length > 0){
-                $('#arti-selec').empty();
-                $('#arti-selec').append("<option value=''>Escoge el articulo</option");
+                $('#arti-selec').empty();                
                 for (var i = 0; i < response.length; i++) {
                     $('#arti-selec').append("<option value='"+ response[i].id + "'>" + response[i].name + "</option");
                 };
-            }else {
-                $('#arti-selec').empty();
-                $('#arti-selec').append("<option value=''>Escoge el articulo</option");
+            }else {               
+                $('#arti-selec').empty();                
             }                        
         });
     });
 
     // Selects dependientes para prestamo externo
-    $('#cat-selec_exte').change(function(event){
+    $('#cat-selec_exte').change(function(event){        
         $.get("select/" + event.target.value + "", function(response, state){
             if (response.length > 0){
-                $('#arti-selec-exte').empty();
-                $('#arti-selec-exte').append("<option value=''>Escoge el articulo</option");
+                $('#arti-selec-exte').empty();                
                 for (var i = 0; i < response.length; i++) {
                     $('#arti-selec-exte').append("<option value='"+ response[i].id + "'>" + response[i].name + "</option");
                 };
             }else {
-                $('#arti-selec-exte').empty();
-                $('#arti-selec-exte').append("<option value=''>Escoge el articulo</option");
+                alert('no entro');
+                $('#arti-selec-exte').empty();                
             }                        
         });
     });
@@ -63,30 +46,13 @@ $(function(){
         $('#cat-selec').val('');
         $('#arti-selec').empty();
         $('#loan-arti').empty();        
-        $('#arti-selec').append("<option value=''>Escoge el articulo</option");
          //externo
-         $('#id_user_exte').val('');
-         $('#cat-selec_exte').val('');
-         $('#loan-arti-exte').empty();
-         $('#arti-selec-exte').empty();
-         $('.datepick').val('');
-         $('#arti-selec-exte').append("<option value=''>Escoge el articulo</option");
-    });
-    $('#btn-prestar').on('click',function(){
-        var content = $('#arti-selec option:selected').text();
-        $('#loan-arti').append('<div class="input-group mg-top col-xs-12 col-sm-12 col-md-8 rmdiv"><span class="input-group-btn"><button type="button" class="btn btn-danger del-loan">x</button></span><input class="form-control" value="'+ content +'" disabled></div>'); 
-        $(document).on('click', '.del-loan', function(e){
-            $(this).parents('.rmdiv').remove();
-        });
-    });
-
-
-    $('#btn-prestar-exte').on('click',function(){
-        var content = $('#arti-select-exte option:selected').text();
-        $('#loan-arti-exte').append('<div class="input-group mg-top col-xs-12 col-sm-12 col-md-8 rmdiv"><span class="input-group-btn"><button type="button" class="btn btn-danger del-loan">x</button></span><input class="form-control" value="'+ content +'" disabled></div>')
-        $(document).on('click', '.del-loan', function(e){
-            $(this).parents('.rmdiv').remove();
-        });   
+        $('#id_user_exte').val('');
+        $('#cat-selec_exte').val('');
+        $('#loan-arti-exte').empty();
+        $('#arti-selec-exte').empty();
+        $('.datepick').val('');
+         
     });
 
     $('#dt-tableLoan').bootstrapTable({
@@ -202,9 +168,6 @@ $(function(){
 // Cargar la vista de error 
 // Si no hay categorias no se puede registrar articulos
 $(function(){
-    // $('#category-has').on('click', function(){
-    //     alert($('#category-has option').length);
-    // });
     if($('#category-has option').length <= 1){
         $('#check').removeClass('nodisplay').addClass('haserror');
     } else{

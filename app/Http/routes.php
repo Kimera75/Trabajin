@@ -13,22 +13,22 @@
 // Login
 Route::get('login', 'LoginController@login');
 // Index
-Route::get('/',function(){
-	return view('index');
-});
+Route::get('/', 'AppController@inicio');
 // Reportes
 Route::get('/pdf/{report}', 'ReportsController@invoice');
 // Configuraciones
 Route::get('/config/sanciones', 'SanctionsController@sanctions');
 Route::get('/config/reports' , 'SanctionsController@report');
-Route::get('config/all', 'AppController@index');
+Route::get('config/all', 'AppController@config');
 Route::post('new-career', 'AppController@addCareer');
 Route::get('del-career/{id}', 'AppController@deleteCareer');
+Route::post('update/{id}', 'AppController@updateApp');
 // Préstamos
 Route::get('/loans', 'LoansController@index');
 Route::get('/make', 'LoansController@makeLoan');
 Route::get('/delivery', 'LoansController@delivery');
 Route::get('select/{id}', 'LoansController@getArticles');
+Route::post('Loan', 'LoansController@addLoan');
 
 // User,Ariculos,Categorias
 Route::resource('user','UserController');

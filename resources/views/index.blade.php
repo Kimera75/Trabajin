@@ -8,7 +8,7 @@
 	        </figure>
 	    </div>
 	    <div class="col-xs-12 col-sm-8 col-md-8">
-	       <h1>Sistema de Control de Inventario y prestamos del Laboratorio de Telematica</h1>
+	       <h1>{{isset($app) ? $app->title: "Nombre de la aplicacion"}}</h1>
 	    </div>
 	    <div class="col-xs-12 col-sm-12 col-md-12">
 	        <fieldset class="field">
@@ -33,23 +33,23 @@
 	                <ul class="info-dep">
 	                    <li class="app-li">
 	                        <p class="hidden-sm hidden-md hidden-lg bold">Nombre del laboratorio: <br></p>
-	                        Laboratorio de tecnologias para el aprendizaje
+	                        {{isset($app) ? $app->name_lab : "Nombre del Laboratorio" }}
 	                    </li>
 	                    <li class="app-li">
 	                        <p class="hidden-sm hidden-md hidden-lg bold"> Departamento:
 	                        <br></p>
-	                        Ciencias Exactas y Humanidades
+	                        {{isset($app) ? $app->dep : "Departamento al que pertenece"}}
 	                    </li>
 	                    <li class="app-li">
 	                        <p class="hidden-sm hidden-md hidden-lg bold">  Coordinador(a):
 	                        <br></p>
-	                       Mtra. Adriana Iñiguez Carrillo
+	                       {{isset($app) ? $app->coord : "Coordinador(a)"}}
 	                    </li>
 	                    <li class="app-li">
 	                        <p class="hidden-sm hidden-md hidden-lg bold">
 	                        Contacto:                                            
 	                        <br></p>
-	                        (341) 123 2345 <br> (341) 123 3454
+	                        {{isset($app) ? $app->contac : "Contacto del coordinador o laboratorio"}}
 	                    </li>
 	                </ul>
 	            </div>                                                    

@@ -12,8 +12,13 @@ class Loans_head extends Model
 
     /*Relacion para agregar el usuario al prestamo*/
     public function user(){
-        return $this->belongsTo('SS\myModel\User');
+        return $this->belongsTo('SS\myModel\User','user_id','id');
     }
+
+    public function article_loans_head(){
+      return $this->hasMany('SS\myModel\Loans_item','loans_heads_id','id');
+    }
+
 
     /*Relacion para agregar articulos al detalle del prestamo*/
     public function articles(){

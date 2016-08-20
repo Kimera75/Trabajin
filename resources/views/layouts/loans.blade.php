@@ -7,11 +7,15 @@
   {{Session::get('message')}}
 </div>
 @endif
-<div class="row title-section"><h2>Préstamos</h2></div>    
+<div class="row title-section"><h2>Préstamos articulo</h2></div>    
+        <ul>         
+            <li>{{$singleArticle}}</li>
+        </ul>       
     <div class="row">
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover dt-table" id="dt-tableLoan">
                 <tbody>
+                @if (isset($loans))                            
                     @foreach($loans as $loan)
                     <tr>
                         <td class="text-center">{{$loan->articles}}</td>
@@ -21,7 +25,8 @@
                             {!!link_to_route('loans.edit', $title = 'Editar', $parameters = $loan->id, $attributes = array('class' => 'btn btn-warning'))!!}
                         </td>
                     </tr>                
-                    @endforeach                   
+                    @endforeach  
+                @endif                             
                 </tbody>
             </table>
         </div>
