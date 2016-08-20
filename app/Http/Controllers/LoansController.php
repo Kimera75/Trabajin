@@ -5,6 +5,8 @@ namespace SS\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Input;
+use Session;
+use Redirect;
 use SS\Http\Requests;
 use SS\myModel\Loans_head as Loans;
 use SS\myModel\Article as Articles;
@@ -38,7 +40,7 @@ class LoansController extends Controller
         
         
         // Crear la tupla con la informacion del encabezado
-        $newLoanHead = New Loans(['type_loan' => 'Interno', 'state' => 'EnCurso']);
+        $newLoanHead = New Loans(['type_loan' => 'Interno', 'state' => 'EnCurso', 'start_date_loan' => $request->date]);
 
         // Agregar el codigo de usuario al encabesado del prestamo y guardar el registro.
         $User->loans_head()->save($newLoanHead);
@@ -47,11 +49,16 @@ class LoansController extends Controller
         $singleArticle = $request->articulo;
 
         foreach($singleArticle as $article){
-            $newLoanHead->article_loans_head()->save(                
+            $newLoanHead->loans_item()->save(                
                 new ArticleLoan(['article_id' => $article, 'quantity' => '1', 'state' => 'Faltante'])                        
             );
         };        
         
-        return View('layouts.loans');               
+        Session::flash('loan','¡Prèstamo hecho correctamente!');
+        return Redirect::to('loans');                    
+    }
+
+    public function viewLoan($id){
+
     }
 }

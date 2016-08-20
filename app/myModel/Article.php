@@ -17,8 +17,8 @@ class Article extends Model
     }
 
    
-   public function loans_heads(){
-   		return $this->belongsToMany('SS\myModel\Loans_head','article_loans_heads')->withPivot('state','quantity')->withTimestamps();
+   public function loans_item(){
+   		return $this->belongsToMany('SS\myModel\Loans_head','loans_item')->withPivot('state','quantity')->withTimestamps();
    }
    
 }

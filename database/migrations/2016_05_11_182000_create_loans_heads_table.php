@@ -18,8 +18,8 @@ class CreateLoansHeadsTable extends Migration
             
            $table->index(['id','user_id'],'index_loans_heads');
 
-            $table->dateTime('start_date_loan')->required();
-            $table->dateTime('end_date_loan')->required();
+            $table->string('start_date_loan')->required();
+            $table->string('end_date_loan')->required();
             $table->enum('type_loan',['Interno','Externo'])->default('Externo');
             $table->enum('state',['EnCurso','Incompleto','Completo','ETarde'])->default('EnCurso');
             $table->timestamps();

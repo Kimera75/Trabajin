@@ -29,6 +29,7 @@ Route::get('/make', 'LoansController@makeLoan');
 Route::get('/delivery', 'LoansController@delivery');
 Route::get('select/{id}', 'LoansController@getArticles');
 Route::post('Loan', 'LoansController@addLoan');
+Route::get('viewloan/{id}', 'LoansController@viewLoan');
 
 // User,Ariculos,Categorias
 Route::resource('user','UserController');
