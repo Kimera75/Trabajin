@@ -38,7 +38,7 @@ h3{
 	color: white !important;
 }
 .centrarLoading{
-	position: relative; 
+	position: absolute; 
 	top: 50%;
 	left:50%;
 	color:black;	

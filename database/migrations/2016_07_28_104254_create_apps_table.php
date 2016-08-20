@@ -13,12 +13,12 @@ class CreateAppsTable extends Migration
     public function up()
     {
         Schema::create('apps', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id');
             $table->string('title');
             $table->string('name_lab');
             $table->string('dep');
             $table->string('coord');
-            $table->string('contac');            
+            $table->string('contac');
             $table->timestamps();
 
         });

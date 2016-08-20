@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Cusur Catalogo Web</title>
+    <title>CUSur - Inventario</title>
     <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
     <!-- Bootstrap Core CSS -->
     {!!Html::style('css/vendor/bootstrap.min.css')!!}
@@ -52,7 +52,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{!!URL::to('/')!!}">Catálogo Web</a>
+                <a class="navbar-brand" href="{!!URL::to('/')!!}">Inicio</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
