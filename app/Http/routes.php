@@ -11,9 +11,13 @@
 |
 */
 // Login
-Route::get('login', 'LoginController@login');
+Route::get('/', 'LoginController@index');
+Route::get('create-acc', 'LoginController@newProfile');
+Route::post('new', 'LoginController@create');
+Route::post('login', 'LoginController@login');
+Route::get('logout', 'LoginController@logout');
 // Index
-Route::get('/', 'AppController@inicio');
+Route::get('index', 'AppController@inicio');
 // Reportes
 Route::get('/pdf/{report}', 'ReportsController@invoice');
 // Configuraciones
@@ -29,6 +33,7 @@ Route::get('/make', 'LoansController@makeLoan');
 Route::get('/delivery', 'LoansController@delivery');
 Route::get('select/{id}', 'LoansController@getArticles');
 Route::post('Loan', 'LoansController@addLoan');
+Route::get('viewloan/{id}', 'LoansController@viewLoan');
 
 // User,Ariculos,Categorias
 Route::resource('user','UserController');

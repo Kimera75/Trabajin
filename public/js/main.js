@@ -33,6 +33,8 @@ $(function(){
     $('#side-menu').metisMenu();
     $('.search-sel').selectpicker();
     $('.datepick').datepicker({
+        language: "es",
+        daysOfWeekDisabled: "0",
         autoclose:true,
         format: "dd/mm/yyyy",
         todayHighlight: true,
@@ -63,15 +65,19 @@ $(function(){
         showColumns: true,   
         columns: [{
             field: 'arti',
-            title: 'Articulo',
+            title: 'Usuario',
             class: 'title-table'
         },{
             field: 'quantity',
-            title: 'Cantidad',
+            title: 'Fecha de inicio',
             class: 'title-table'
         },{
             field: 'state',
             title: 'Status del préstamo',
+            class: 'title-table'
+        },{
+            field: 'oper',
+            title: 'Operaciones',
             class: 'title-table'
         }] 
     });

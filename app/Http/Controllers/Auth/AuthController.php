@@ -2,7 +2,7 @@
 
 namespace SS\Http\Controllers\Auth;
 
-use SS\User;
+use SS\myModel\Admin;
 use Validator;
 use SS\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -50,7 +50,7 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:admins',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -63,7 +63,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Admin::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),

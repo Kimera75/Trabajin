@@ -500,6 +500,21 @@ ul.inner>li:first-child{
 .big{
     font-size: 18px;
 }
+.green{
+    color: green;
+}
+.yellow{
+    color:yellow;
+}
+.blue{
+    color:blue;
+}
+.red{
+    color:red;
+}
+.styless{
+    list-style: none;
+}
 @media(max-width: 768px){
     .center-only-sm{
         text-align: center;

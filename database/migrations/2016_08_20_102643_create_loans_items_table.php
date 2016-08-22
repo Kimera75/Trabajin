@@ -1,9 +1,9 @@
- <?php
+<?php
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticleLoansHeadsTable extends Migration
+class CreateLoansItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,14 @@ class CreateArticleLoansHeadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('article_loans_heads', function (Blueprint $table) {
+         Schema::create('loans_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('loans_head_id')->unsigned();
+            $table->bigInteger('loans_heads_id')->unsigned();
             $table->string('article_id',7);
+/***************************************/
+            $table->foreign('loans_heads_id')->references('id')->on('loans_heads');
+            $table->foreign('article_id',7)->references('id')->on('articles');
 
-            $table->foreign('loans_head_id')->references('id')->on('loans_heads');
-            $table->foreign('article_id',7)->references('id')->on('articles');     
-          
             $table->enum('state',['Entregado','Faltante','ETarde'])->default('Faltante');
             $table->integer('quantity')->unsigned()->default(1);
 
@@ -34,6 +34,6 @@ class CreateArticleLoansHeadsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('article_loans_heads');
+        Schema::drop('loans_items');
     }
 }

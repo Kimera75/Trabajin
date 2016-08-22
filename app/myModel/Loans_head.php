@@ -1,6 +1,5 @@
 <?php
 
-
 namespace SS\myModel;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,14 +14,14 @@ class Loans_head extends Model
         return $this->belongsTo('SS\myModel\User','user_id','id');
     }
 
-    public function article_loans_head(){
+    public function loans_item(){
       return $this->hasMany('SS\myModel\Loans_item','loans_heads_id','id');
     }
 
 
     /*Relacion para agregar articulos al detalle del prestamo*/
     public function articles(){
-   		return $this->belongsToMany('SS\myModel\Article','article_loans_heads')->withPivot('state','quantity')->withTimestamps();
+   		return $this->belongsToMany('SS\myModel\Article','loans_item')->withPivot('state','quantity')->withTimestamps();
    	}
 
     /*Agregar encabezado a sancion correspondiente*/
