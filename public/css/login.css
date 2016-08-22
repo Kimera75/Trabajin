@@ -37,6 +37,16 @@ h3{
 	background: #3343B7 !important;
 	color: white !important;
 }
+.green{
+	border: 1px solid green !important;
+	color: green !important;
+}
+.green:hover{
+	background: green !important;
+}
+.green:active{
+	background: green !important;
+}
 .centrarLoading{
 	position: absolute; 
 	top: 50%;

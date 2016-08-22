@@ -11,9 +11,13 @@
 |
 */
 // Login
-Route::get('login', 'LoginController@login');
+Route::get('/', 'LoginController@index');
+Route::get('create-acc', 'LoginController@newProfile');
+Route::post('new', 'LoginController@create');
+Route::post('login', 'LoginController@login');
+Route::get('logout', 'LoginController@logout');
 // Index
-Route::get('/', 'AppController@inicio');
+Route::get('index', 'AppController@inicio');
 // Reportes
 Route::get('/pdf/{report}', 'ReportsController@invoice');
 // Configuraciones

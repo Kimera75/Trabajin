@@ -52,30 +52,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{!!URL::to('/')!!}">Inicio</a>
+                <a class="navbar-brand" href="{!!URL::to('/index')!!}">Inicio</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw fa-2x"></i><i class="fa fa-caret-down"></i>
-                        @Usuario
+                        {!!Auth::user()->name!!}
+                        <i class="fa fa-user fa-fw fa-2x"></i><i class="fa fa-caret-down"></i>                        
                     </a>
-                    <ul class="dropdown-menu text-center">
+                    <ul class="dropdown-menu text-center">                          
                         <li>
-                            <a href="#" >
-                                <i class="fa fa-info fa-fw pull-left"></i> Mi perfil
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#" >
-                                <i class="fa fa-wrench fa-fw pull-left"></i>Configuraciones
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#" >
+                            <a href="{!!URL::to('logout')!!}" >
                                 <i class="fa fa-times fa-fw pull-left"></i> Salir
                             </a>
                         </li>                        
